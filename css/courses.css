@@ -1,0 +1,19 @@
+.description {
+  margin: 10px 0;
+}
+
+.example > img {
+  margin: 5px;
+  display: inline-block;
+}
+.example .image-container {
+  margin: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+p {
+   text-align:justify;
+}
+
+
