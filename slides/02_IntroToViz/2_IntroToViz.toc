@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{Outline}{2}{0}{1}
+\beamer@sectionintoc {2}{Announcements}{3}{0}{2}
+\beamer@sectionintoc {3}{Data Mining Terminology}{8}{0}{3}
+\beamer@sectionintoc {4}{Introduction To Data Visualization}{25}{0}{4}
+\beamer@sectionintoc {5}{Summary}{35}{0}{5}
