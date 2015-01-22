@@ -5,11 +5,16 @@
         <link href="css/metro-bootstrap-responsive.min.css" rel="stylesheet">
         <link href="css/iconFont.min.css" rel="stylesheet">
         <link href="css/courses.css" rel="stylesheet">
+        <link href="css/prism.css" rel="stylesheet">
 
         <script src="js/jquery/jquery.min.js"></script>
         <script src="js/jquery/jquery.widget.min.js"></script>
+        
+        <script src="js/prism.js"></script>
 
         <title>CSE 5334:002 Data Mining - Resources</title>
+
+
 
     </head>
 
@@ -76,7 +81,121 @@
                     <div class="panel-header bg-lightBlue fg-white">
                         Resources
                     </div>
-                    <div class="panel-content">
+                    <div class="panel-content"
+
+
+<!-------------------------------accordion starts here -->
+<!-- other stylish accordions 
+            <a class="heading text-right ribbed-green fg-white collapsed" href="#">Item #2</a>
+            <a class="heading ribbed-red fg-white collapsed" href="#">Item #3</a>
+-->
+
+   <div class="accordion with-marker " data-role="accordion" data-closeany="false">
+
+        <div class="accordion-frame">
+            <a class="heading bg-lightBlue fg-white" href="#">[Jan 21, 2015] Scientific Python Setup</a>
+            <div class="content" style="display: block;">
+
+                <p>
+                <strong>Installation:</strong>In this class, we will be using Python as the programming language for all assignments.
+                Please refer to this <a href="https://github.com/cs109/content/wiki/Installing-Python">url</a>
+                for simple instructions about installing Python and Scientific Python. 
+                I <strong>strongly</strong> suggest using Anaconda distribution system.
+                If you want to manually install the packages, use the instructions <a href="http://www.scipy.org/install.html">here</a>.
+                Remember to install other packages such as BeautifulSoup, Pattern, Seaborn and MrJob. 
+                Instructions are in the first <a href="https://github.com/cs109/content/wiki/Installing-Python">url</a> itself.
+                </p>
+
+                <p>
+                    <strong>IPython Notebook Basics:</strong> Please spend some time exploring IPython Notebook.
+                    <a href="https://www.youtube.com/watch?v=qb7FT68tcA8">This</a> is a fast, 10 minute video introducing the basics.
+                    As of now,  it is perfectly fine if you do not understand what the Python code that are being executed means.
+                   Once you are done, please spend some time reading <a href="http://ipython.org/ipython-doc/2/notebook/notebook.html"> this tutorial</a>
+                   which might require around 30 minutes of your time.
+                   We will be spending lot of time in IPython Notebooks. So an initial investment of time will save lot of your time later.
+                    <br/> <br/>
+                   [Optional] <a href="http://pgbovine.net/ipython-notebook-first-impressions.htm">This</a> is a great post from Philip Guo
+                        about his impressions about IPython Notebook. 
+                        <a href="http://www.nature.com/news/interactive-notebooks-sharing-the-code-1.16261">This</a> is an article
+                        from Nature magazine (a prestigious publisher in Science domain)
+                        about how IPython Notebook is becoming popular in non-CS domain.
+                </p>
+                <p>
+                    <strong>Python Basics:</strong> 
+                    <A href="http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-1-Introduction-to-Python-Programming.ipynb">
+                    Here</a> is a GREAT IPytho Notebook that covers most important ideas in Python. For most of you, it should not take more than 1-2 hours.
+
+                    <br/> <br/>
+                    [Optional] 
+                     <a href="http://nbviewer.ipython.org/github/jrjohansson/scientific-python-lectures/blob/master/Lecture-0-Scientific-Computing-with-Python.ipynb">
+                        This</a> IPython Notebook provides a non-technical introduction to entire Scientific Python stack. 
+                </p>
+
+
+                <p>
+                    <strong>Verification:</strong> It is important to have a common baseline so that the code we will be using have same output. 
+                        If you have installed all packages correctly, you should have version numbers that are higher than what is given below.
+                        If not, install the necessary package and restart IPython Notebook/console.
+
+<pre>
+<code class="language-python">
+#IPython is what you are using now to run the notebook
+import IPython
+print "IPython version:      %6.6s (need at least 1.0)" % IPython.__version__
+
+# Numpy is a library for working with Arrays
+import numpy as np
+print "Numpy version:        %6.6s (need at least 1.7.1)" % np.__version__
+
+# SciPy implements many different numerical algorithms
+import scipy as sp
+print "SciPy version:        %6.6s (need at least 0.12.0)" % sp.__version__
+
+# Pandas makes working with data tables easier
+import pandas as pd
+print "Pandas version:       %6.6s (need at least 0.11.0)" % pd.__version__
+
+# Module for plotting
+import matplotlib
+print "Mapltolib version:    %6.6s (need at least 1.2.1)" % matplotlib.__version__
+
+# SciKit Learn implements several Machine Learning algorithms
+import sklearn
+print "Scikit-Learn version: %6.6s (need at least 0.13.1)" % sklearn.__version__
+
+# Requests is a library for getting data from the Web
+import requests
+print "requests version:     %6.6s (need at least 1.2.3)" % requests.__version__
+
+#BeautifulSoup is a library to parse HTML and XML documents
+import bs4
+print "BeautifulSoup version:%6.6s (need at least 4.0)" % bs4.__version__
+
+#MrJob is a library to run map reduce jobs on Amazon's computers
+import mrjob
+print "Mr Job version:       %6.6s (need at least 0.4)" % mrjob.__version__
+
+#Pattern has lots of tools for working with data from the internet
+import pattern
+print "Pattern version:      %6.6s (need at least 2.6)" % pattern.__version__
+
+#Seaborn is a nice library for visualizations
+import seaborn
+print "Seaborn version:      %6.6s (need at least 0.3.1)" % seaborn.__version__
+</code>
+</pre>
+                </p>
+            </div>
+        </div>
+
+
+
+    </div>
+<!-------------------------------accordion ends here -->
+
+
+
+
                     </div>
 
                 </div>
