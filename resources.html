@@ -7,9 +7,10 @@
         <link href="css/courses.css" rel="stylesheet">
         <link href="css/prism.css" rel="stylesheet">
 
-        <script src="js/jquery/jquery.min.js"></script>
-        <script src="js/jquery/jquery.widget.min.js"></script>
-        
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery.widget.min.js"></script>
+        <script src="js/metro.min.js"></script>
+
         <script src="js/prism.js"></script>
 
         <title>CSE 5334:002 Data Mining - Resources</title>
@@ -92,9 +93,13 @@
 
    <div class="accordion with-marker " data-role="accordion" data-closeany="false">
 
+
+
+
+
         <div class="accordion-frame">
-            <a class="heading bg-lightBlue fg-white" href="#">[Jan 21, 2015] Scientific Python Setup</a>
-            <div class="content" style="display: block;">
+            <a class="heading bg-lightBlue fg-white collapsed" href="#">[Jan 21, 2015] Scientific Python Setup</a>
+            <div class="content"> 
 
                 <p>
                 <strong>Installation:</strong>In this class, we will be using Python as the programming language for all assignments.
@@ -135,7 +140,7 @@
                 <p>
                     <strong>Verification:</strong> It is important to have a common baseline so that the code we will be using have same output. 
                         If you have installed all packages correctly, you should have version numbers that are higher than what is given below.
-                        If not, install the necessary package and restart IPython Notebook/console.
+                        If not, install the necessary package and restart IPython Notebook/console. (Courtesy: Harvard, CS 109)
 
 <pre>
 <code class="language-python">
@@ -187,6 +192,33 @@ print "Seaborn version:      %6.6s (need at least 0.3.1)" % seaborn.__version__
                 </p>
             </div>
         </div>
+
+
+
+
+<div class="accordion-frame">
+    <a class="heading bg-lightBlue fg-white collapsed" href="#">[Jan 27, 2015] Pandas Tutorial</a>
+    <div class="content">
+
+        <p> 
+            Pandas is one of the most important package that you will learn to use in this class. 
+            You can find a wide variety of tutorials <a href="http://pandas.pydata.org/pandas-docs/stable/tutorials.html">here</a>.
+            Specifically, focus on Lessons 1 to 7 in <strong>Lessons for New pandas Users</strong>.
+            Each of these lessons must not take more than 5-10 minute of your time.
+        </p>
+
+        <p>
+            [Optional] You might also want to check out Chapters 1-5 in <strong>pandas Cookbook</strong> <br/>
+            [Optional] If you have some more time to spare, <a href="https://github.com/fonnesbeck/statistical-analysis-python-tutorial">here</a>
+                     is a great series of IPython Notebooks for analyzing data using Python. Focus on first two notebooks 
+                    <strong>Introduction to Pandas</strong> and <strong>Data Wrangling with Pandas</strong>.
+                    Dr.Christopher Fonnesbeck's lecture is also in <a href="https://conference.scipy.org/scipy2013/tutorial_detail.php?id=109">Youtube</a> 
+                    in case you prefer a live demonstration.
+        </p> 
+    </div>
+</div>
+
+
 
 
 
