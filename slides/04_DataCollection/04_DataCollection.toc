@@ -1,0 +1,5 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{Outline}{2}{0}{1}
+\beamer@sectionintoc {2}{Data Collection}{4}{0}{2}
+\beamer@sectionintoc {3}{Web Scraping}{28}{0}{3}
+\beamer@sectionintoc {4}{Summary}{43}{0}{4}
