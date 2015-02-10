@@ -1,0 +1,6 @@
+\beamer@endinputifotherversion {3.33pt}
+\beamer@sectionintoc {1}{Outline}{2}{0}{1}
+\beamer@sectionintoc {2}{Geometric Perspective of Classification}{3}{0}{2}
+\beamer@sectionintoc {3}{Decision Trees}{17}{0}{3}
+\beamer@sectionintoc {4}{Learning Decision Trees}{33}{0}{4}
+\beamer@sectionintoc {5}{Summary}{56}{0}{5}
