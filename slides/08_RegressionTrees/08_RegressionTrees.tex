@@ -215,6 +215,13 @@
 
 \begin{frame}{High Level Idea}
     \begin{itemize}
+        \item {\bf Classification Tree:} Quality of split measured by general ``Impurity measure''
+        \item {\bf Regression Tree:} Quality of split measured by ``Squared error''
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{High Level Idea}
+    \begin{itemize}
         \item We divide the feature space into $J$ distinct and non-overlapping regions $R_1, R_2, \ldots, R_J$
         \item For every observation that falls into the region $R_i$, we make same prediction, which is simply the mean of the response values for the training observations in $R_i$
         \item {\bf Objective:} Find boxes $R_1, R_2, \ldots, R_J$  that minimizes Residual Sum of Square (RSS) 

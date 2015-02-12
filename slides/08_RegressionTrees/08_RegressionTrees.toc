@@ -2,4 +2,4 @@
 \beamer@sectionintoc {1}{Outline}{2}{0}{1}
 \beamer@sectionintoc {2}{Regression}{3}{0}{2}
 \beamer@sectionintoc {3}{Regression Trees}{21}{0}{3}
-\beamer@sectionintoc {4}{Summary}{35}{0}{4}
+\beamer@sectionintoc {4}{Summary}{36}{0}{4}
