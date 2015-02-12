@@ -401,9 +401,14 @@
         \item Exponential search space wrt set of attributes
         \item If there are $d$ boolean attributes, then the search space has $2^{2^d}$ trees
         \begin{itemize}
-            \item If $d=6$, then it is approximately $2 \times 10^{18}$
+            \item If $d=6$, then it is approximately $18,446,744,073,709,551,616$ (or approximately $1.8 \times 10^{18}$)
             \item If there are $d$ boolean attributes, each truth table has $2^d$ rows
             \item Hence there must be $2^{2^d}$ truth tables that can take all possible variations 
+            \item Alternate argument: the number of trees is same as 
+            \begin{itemize}
+                \item number of bolean functions with $d$ variables
+                \item = number of distinct truth tables with $2^d$ rows = $2^{2^d}$
+            \end{itemize}
         \end{itemize}
         \item NP-Complete to find optimal decision tree
         \item Idea: Use greedy approach to find a locally optimal tree
@@ -433,6 +438,12 @@
     \end{enumerate}
 \end{frame}
 
+\begin{frame}{Recursive Algorithm for Learning Decision Trees}
+    \begin{center}
+        \includegraphics[scale=0.4]{dTreeLearningAlgo.png}
+    \end{center}
+\end{frame}
+
 
 \begin{frame}{Decision Tree Learning}
     \begin{itemize}
@@ -441,11 +452,11 @@
         \item Major issues
         \begin{itemize}
             \item Selecting the next attribute
+            \item Given an attribute, how to specify the split condition
             \item Determining termination condition
         \end{itemize}
     \end{itemize}
 \end{frame}
-
 
 \begin{frame}{Termination Condition}
 
@@ -457,51 +468,266 @@
 \end{frame}
 
 
-\begin{frame}{Recursive Algorithm for Learning Decision Trees}
+\begin{frame}{How to Specify Test Condition?}
+    \begin{itemize}
+        \item Depends on attribute types
+        \begin{itemize}
+            \item Nominal
+            \item Ordinal
+            \item Continuous
+        \end{itemize}
+        \item Depends on number of ways to split
+        \begin{itemize}
+            \item 2-way split
+            \item Multi-way split
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Splitting based on Nominal Attributes}
     \begin{center}
-        \includegraphics[scale=0.4]{dTreeLearningAlgo.png}
+        \includegraphics[scale=0.4]{splittingNominalAttr.png}
+    \end{center}
+\end{frame}
+\begin{frame}{Splitting based on Ordinal Attributes}
+    \begin{center}
+        \includegraphics[scale=0.4]{splittingOrdinalAttr.png}
+    \end{center}
+\end{frame}
+\begin{frame}{Splitting based on Continuous Attributes}
+
+    How to split continuous attributes such as Age, Income etc
+    \pause 
+    \begin{itemize}
+        \item {\bf Discretization} to form an ordinal categorical attribute
+        \begin{itemize}
+            \item {\em Static:} discretize once at the beginning
+            \item {\em Dynamic:} find ranges by equal interval bucketing, equal frequency bucketing, percentiles, clustering etc
+        \end{itemize}
+        \item {\bf Binary Decision:} $ (A < v) or (A \geq v)$
+        \begin{itemize}
+            \item Consider all possible split and find the best cut
+            \item Often, computationally intensive
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Splitting based on Continuous Attributes}
+    \begin{center}
+        \includegraphics[scale=0.5]{splittingContAttr.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Choosing the next Attribute - I}
+    \begin{center}
+        \includegraphics[scale=0.4]{choosingNextAttr1.png}
+    \end{center}
+\end{frame}
+\begin{frame}{Choosing the next Attribute - II\furl{http://www.cedar.buffalo.edu/~srihari/CSE574/Chap16/Chap16.1-InformationGain.pdf}}
+    \begin{center}
+        \includegraphics[scale=0.3]{choosingNextAttr2.png}
+    \end{center}
+\end{frame}
+\begin{frame}{Choosing the next Attribute - III}
+    \begin{center}
+        \includegraphics[scale=0.45]{choosingNextAttr3.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Choosing an Attribute}
+    \begin{itemize}
+        \item Good Attribute \pause
+        \begin{itemize}
+            \item for one value we get all instances as positive
+            \item for other value we get all instances as negative
+        \end{itemize}
+        \item Bad Attribute \pause
+        \begin{itemize}
+            \item it provides no discrimination
+            \item attribute is immaterial to the decision
+            \item for each value we have same number of positive and negative instances
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+
+\begin{frame}{How to Find the Best Split?}
+    \begin{center}
+        \includegraphics[scale=0.4]{howToFindBestSplit.png}
     \end{center}
 \end{frame}
 
 
-\begin{frame}{}
+\begin{frame}{Measures of Node Impurity}
     \begin{itemize}
-        \item 
+        \item Gini Index
+        \item Entropy
+        \item Misclassification Error
     \end{itemize}
 \end{frame}
 
 
-\begin{frame}{}
+\begin{frame}{Gini Index}
     \begin{itemize}
-        \item 
+        \item An important measure of statistical dispersion
+        \item Used in Economics to measure income inequality in countries
+        \item Proposed by Corrado Gini 
+    \end{itemize}
+\end{frame}
+\begin{frame}{Gini Index}
+    \begin{center}
+        \includegraphics[scale=0.4]{giniIndex2.png}
+    \end{center}
+\end{frame}
+\begin{frame}{Gini Index}
+    \begin{center}
+        \includegraphics[scale=0.4]{giniIndex1.png}
+    \end{center}
+\end{frame}
+\begin{frame}{Splitting Based on Gini}
+    \begin{itemize}
+        \item Used in CART, SLIQ, SPRINT
+        \item When a node $p$ is split into $k$ partitions (children), the quality of split is computed as,
+                $$ Gini_{split} = \sum_{i=1}^{k} \frac{n_i}{n} Gini(i) $$
+        \begin{itemize}
+            \item $n_i$ =  number of records at child $i$
+            \item $n$ =  number of records at node $p$
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Gini Index for Binary Attributes}
+    \begin{center}
+        \includegraphics[scale=0.4]{giniIndex3.png}
+    \end{center}
+\end{frame}
+\begin{frame}{Gini Index for Categorical Attributes}
+    \begin{center}
+        \includegraphics[scale=0.4]{giniIndex4.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Entropy and Information Gain}
+    \begin{itemize}
+        \item You are watching a set of independent random samples of a random variable $X$
+        \item Suppose the probabilities are equal: $P(X=A) = P(X=B) = P(X=C) = P(X=D) = \frac{1}{4}$
+        \item Suppose you see a text like $BAAC$
+        \item You want to transmit this information in a {\bf binary} communication channel
+        \item How many bits will you need to transmit this information? \pause
+        \item Simple idea: Represent each character via 2 bits: $A=00, B=01, C=10, D=11$
+        \item So, $BAAC$ becomes $01000010$
+        \item Communication Complexity: $2$ on average bits per symbol
     \end{itemize}
 \end{frame}
 
-
-\begin{frame}{}
+\begin{frame}{Entropy and Information Gain}
     \begin{itemize}
-        \item 
+        \item Suppose you knew probabilities are unequal: $P(X=A) = \frac{1}{2}, P(X=B) = \frac{1}{4}, P(X=C) = P(X=D) = \frac{1}{8}$
+        \item It is now possible to send information $1.75$ bits on average per symbol \pause
+        \item Choose a frequency based code!
+        \item $A=0, B=10, C=110, D=111$ \pause
+        \item $BAAC$ becomes $1000110$
+        \item Requires only 7 bits for transmitting $BAAC$
     \end{itemize}
 \end{frame}
 
-
-\begin{frame}{}
-    \begin{itemize}
-        \item 
-    \end{itemize}
+\begin{frame}{Entropy}
+    \begin{center}
+        \includegraphics[scale=0.4]{entropy1.png}
+    \end{center}
+\end{frame}
+\begin{frame}{Entropy}
+    \begin{center}
+        \includegraphics[scale=0.4]{entropy2.png}
+    \end{center}
+\end{frame}
+\begin{frame}{Entropy}
+    \begin{center}
+        \includegraphics[scale=0.4]{entropy3.png}
+    \end{center}
+\end{frame}
+\begin{frame}{Entropy}
+    \begin{center}
+        \includegraphics[scale=0.4]{entropy4.png}
+    \end{center}
 \end{frame}
 
 
-\begin{frame}{}
+\begin{frame}{Splitting based on Classification Error}
     \begin{itemize}
-        \item 
+        \item Classification error at node $t$ is $$Error(t) = 1 - max_{i} P(i|t)$$
+        \item Measures misclassification error made by a node.
+        \begin{itemize}
+            \item Minimum ($0.0$) when all records belong to one class, implying  most interesting information
+            \item Maximum ($1 - \frac{1}{n_c}$) when records are equally distributed among all classes, implying least interesting information
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Classification Error}
+    \begin{center}
+        \includegraphics[scale=0.4]{classificationError.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Comparison among Splitting Criteria}
+    \begin{center}
+        \includegraphics[scale=0.4]{comparingSplittingCritieria.png}
+    \end{center}
+\end{frame}
+\begin{frame}{Splitting Criteria}
+    \begin{itemize}
+        \item Gini Index (CART, SLIQ, SPRINT):
+        \begin{itemize} 
+            \item select attribute that minimize impurity of a split 
+        \end{itemize}
+        \item Information Gain (ID3, C4.5)
+        \begin{itemize} 
+            \item select attribute with largest information gain
+        \end{itemize}
+        \item Normalized Gain ratio (C4.5)
+        \begin{itemize} 
+            \item normalize different domains of attributes
+        \end{itemize}
+        \item  Distance normalized measures (Lopez de Mantaras)
+        \begin{itemize} 
+            \item define a distance metric between partitions of the data
+            \item chose the one closest to the perfect partition
+        \end{itemize}
+        \item $\chi^2$ contingency table statistics (CHAID)
+        \begin{itemize} 
+            \item measures correlation between each attribute and the class label
+            \item select attribute with maximal correlation
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
-
-\begin{frame}{}
+\begin{frame}{Overfitting in Decision Trees}
     \begin{itemize}
-        \item 
+        \item Decision trees will always overfit in the absence of label noise
+        \item Simple strategies for fixing:
+        \begin{itemize}
+            \item Fixed depth
+            \item Fixed number of leaves
+            \item Grow the tree till the gain is above some threshold
+            \item Post pruning
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Trees vs Linear Models}
+    \begin{center}
+        \includegraphics[scale=0.4]{treesVsLinearModels.png}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Advantages and Disadvantages}
+    \begin{itemize}
+        \item Very easy to explain to people.
+        \item Some people believe that decision trees more closely mirror human decision-making
+        \item Trees can be displayed graphically, and are easily interpreted even by a non-expert (especially if they are small)
+        \item Trees can easily handle qualitative predictors without the need to create dummy variables.
+        \item Inexpensive to construct
+        \item Extremely fast at classifying new data
+        \item Unfortunately, trees generally do not have the same level of predictive accuracy as other classifiers
     \end{itemize}
 \end{frame}
 
@@ -521,6 +747,7 @@
     \item Slides from ISLR book
     \item Slides by Piyush Rai
     \item Slides for Chapter 4 from ``Introduction to Data Mining'' book by Tan, Steinbach, Kumar
+    \item Slides from Andrew Moore, CMU
     \item See also the footnotes
 \end{itemize}
 \end{frame}
