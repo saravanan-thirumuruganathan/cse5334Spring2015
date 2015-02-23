@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2014.12.22)  19 FEB 2015 13:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Debian) (preloaded format=pdflatex 2014.12.22)  19 FEB 2015 13:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**09_NaiveBayesSVM.tex
-(./09_NaiveBayesSVM.tex
+**10_NeuralNetworksDeepLearning.tex
+(./10_NeuralNetworksDeepLearning.tex
 LaTeX2e <2014/05/01>
 Babel <3.9k> and hyphenation patterns for 2 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
@@ -721,8 +721,8 @@ Package: beamercolorthemewhale 2010/06/17  (rcs-revision d02a7cf4d8ae)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/color/beamercolorthemeor
 chid.sty
 Package: beamercolorthemeorchid 2010/06/17  (rcs-revision d02a7cf4d8ae)
-)) (./09_NaiveBayesSVM.aux)
-\openout1 = `09_NaiveBayesSVM.aux'.
+)) (./10_NeuralNetworksDeepLearning.aux)
+\openout1 = `10_NeuralNetworksDeepLearning.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
 LaTeX Font Info:    ... okay on input line 29.
@@ -817,9 +817,9 @@ LaTeX Info: Redefining \ref on input line 29.
 LaTeX Info: Redefining \pageref on input line 29.
 LaTeX Info: Redefining \nameref on input line 29.
 
-(./09_NaiveBayesSVM.out) (./09_NaiveBayesSVM.out)
+(./10_NeuralNetworksDeepLearning.out) (./10_NeuralNetworksDeepLearning.out)
 \@outlinefile=\write5
-\openout5 = `09_NaiveBayesSVM.out'.
+\openout5 = `10_NeuralNetworksDeepLearning.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 29.
@@ -900,7 +900,7 @@ Dictionary: translator-theorem-dictionary, Language: English
 )
 LaTeX Info: Redefining \includegraphics on input line 29.
 
-(./09_NaiveBayesSVM.nav)
+(./10_NeuralNetworksDeepLearning.nav)
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 34.
@@ -912,649 +912,107 @@ LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
 ] [3
 
 ]
-LaTeX Font Info:    Try loading font information for OMS+cmss on input line 83.
+<brains.png, id=52, 782.925pt x 490.83376pt>
+File: brains.png Graphic file (type png)
+ <use brains.png>
+Package pdftex.def Info: brains.png used on input line 72.
+(pdftex.def)             Requested size: 313.16446pt x 196.33002pt.
 
-LaTeX Font Info:    No file OMScmss.fd. on input line 83.
+Overfull \hbox (5.87459pt too wide) in paragraph at lines 72--72
+ [] 
+ []
 
-
-LaTeX Font Warning: Font shape `OMS/cmss/m/n' undefined
-(Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 83.
-
-LaTeX Font Info:    Try loading font information for U+msa on input line 83.
+LaTeX Font Info:    Try loading font information for U+msa on input line 72.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 83.
+LaTeX Font Info:    Try loading font information for U+msb on input line 72.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 83.
+line 72.
 
 (/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
 File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
 thkerncmss.
 )
+Overfull \vbox (1.62022pt too high) detected at line 72
+ []
+
 [4
 
-] [5
+ <./brains.png>] <skynet.png, id=61, 994.71625pt x 697.60625pt>
+File: skynet.png Graphic file (type png)
 
-] [6
+<use skynet.png>
+Package pdftex.def Info: skynet.png used on input line 77.
+(pdftex.def)             Requested size: 298.41718pt x 209.28348pt.
+
+Overfull \vbox (0.97368pt too high) detected at line 77
+ []
+
+[5
+
+ <./skynet.png>]
+File: brains.png Graphic file (type png)
+ <use brains.png>
+Package pdftex.def Info: brains.png used on input line 83.
+(pdftex.def)             Requested size: 313.16446pt x 196.33002pt.
+
+Overfull \hbox (5.87459pt too wide) in paragraph at lines 83--83
+ [] 
+ []
+
+[6
 
 ] [7
 
-] <axiomsOfProbability.png, id=92, 867.24pt x 583.17876pt>
-File: axiomsOfProbability.png Graphic file (type png)
-
-<use axiomsOfProbability.png>
-Package pdftex.def Info: axiomsOfProbability.png used on input line 123.
-(pdftex.def)             Requested size: 260.17401pt x 174.95497pt.
- [8
-
- <./axiomsOfProbability.png>] [9
-
-]
-<lawOfTotalProbability.png, id=109, 418.56375pt x 261.97874pt>
-File: lawOfTotalProbability.png Graphic file (type png)
-
-<use lawOfTotalProbability.png>
-Package pdftex.def Info: lawOfTotalProbability.png used on input line 141.
-(pdftex.def)             Requested size: 251.14018pt x 157.18845pt.
- [10
-
- <./lawOfTotalProbability.png>]
-<probTbl.png, id=118, 777.90625pt x 359.3425pt>
-File: probTbl.png Graphic file (type png)
- <use probTbl.png>
-Package pdftex.def Info: probTbl.png used on input line 147.
-(pdftex.def)             Requested size: 233.37367pt x 107.80357pt.
- [11
-
- <./probTbl.png>] <jointProbTbl.png, id=125, 823.075pt x 449.68pt>
-File: jointProbTbl.png Graphic file (type png)
-
-<use jointProbTbl.png>
-Package pdftex.def Info: jointProbTbl.png used on input line 152.
-(pdftex.def)             Requested size: 246.9244pt x 134.90503pt.
- [12
-
- <./jointProbTbl.png>]
-<marginalProbTbl1.png, id=132, 798.985pt x 527.9725pt>
-File: marginalProbTbl1.png Graphic file (type png)
-
-<use marginalProbTbl1.png>
-Package pdftex.def Info: marginalProbTbl1.png used on input line 157.
-(pdftex.def)             Requested size: 239.69734pt x 158.39296pt.
- [13
-
- <./marginalProbTbl1.png>]
-<marginalProbTbl2.png, id=140, 862.22125pt x 507.8975pt>
-File: marginalProbTbl2.png Graphic file (type png)
-
-<use marginalProbTbl2.png>
-Package pdftex.def Info: marginalProbTbl2.png used on input line 162.
-(pdftex.def)             Requested size: 258.66837pt x 152.37042pt.
- [14
-
- <./marginalProbTbl2.png>]
-<condnlProb.png, id=147, 413.545pt x 297.11pt>
-File: condnlProb.png Graphic file (type png)
- <use condnlProb.png>
-Package pdftex.def Info: condnlProb.png used on input line 171.
-(pdftex.def)             Requested size: 206.77199pt x 148.55463pt.
- [15
-
- <./condnlProb.png>] [16
-
-] [17
-
-] [18
-
-] [19
-
-] [20
-
-]
-<independenceJoke.png, id=186, 883.3pt x 537.00626pt>
-File: independenceJoke.png Graphic file (type png)
-
-<use independenceJoke.png>
-Package pdftex.def Info: independenceJoke.png used on input line 234.
-(pdftex.def)             Requested size: 317.98776pt x 193.3221pt.
-
-Overfull \hbox (10.69789pt too wide) in paragraph at lines 234--234
- [] 
- []
-
-[21
-
- <./independenceJoke.png>] [22
-
-]
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
-Missing character: There is no Ÿ in font cmss10!
- [23
-
-]
-Missing character: There is no â in font cmss10!
-Missing character: There is no € in font cmss10!
-Missing character: There is no Ÿ in font cmss10!
- [24
-
-] [25
-
-] [26
-
-] [27
-
-] [28
-
-] [29
-
-] [30
-
-]
-[31
-
-] [32
-
-] [33
-
-] [34
-
-] <candyEg.png, id=285, 800.9925pt x 243.91125pt>
-File: candyEg.png Graphic file (type png)
-
-<use candyEg.png>
-Package pdftex.def Info: candyEg.png used on input line 356.
-(pdftex.def)             Requested size: 368.46101pt x 112.20053pt.
-
-Overfull \hbox (61.17114pt too wide) in paragraph at lines 356--356
- [] 
- []
-
-[35
-
- <./candyEg.png>] [36
-
-] [37
-
-] [38
-
-] [39
-
-] [40
-
-] [41
-
-] [42
-
-] [43
-
-]
-<bayesClassifier1.png, id=343, 834.11626pt x 502.87875pt>
-File: bayesClassifier1.png Graphic file (type png)
-
-<use bayesClassifier1.png>
-Package pdftex.def Info: bayesClassifier1.png used on input line 421.
-(pdftex.def)             Requested size: 333.6406pt x 201.14793pt.
-
-Overfull \hbox (26.35072pt too wide) in paragraph at lines 421--421
- [] 
- []
-
-[44
-
- <./bayesClassifier1.png>]
-<bayesClassifier2.png, id=350, 849.1725pt x 465.74pt>
-File: bayesClassifier2.png Graphic file (type png)
-
-<use bayesClassifier2.png>
-Package pdftex.def Info: bayesClassifier2.png used on input line 426.
-(pdftex.def)             Requested size: 339.66298pt x 186.2927pt.
-
-Overfull \hbox (32.37311pt too wide) in paragraph at lines 426--426
- [] 
- []
-
-[45
-
- <./bayesClassifier2.png>]
-<bayesClassifier3.png, id=357, 831.105pt x 489.83pt>
-File: bayesClassifier3.png Graphic file (type png)
-
-<use bayesClassifier3.png>
-Package pdftex.def Info: bayesClassifier3.png used on input line 431.
-(pdftex.def)             Requested size: 332.43611pt x 195.92853pt.
-
-Overfull \hbox (25.14624pt too wide) in paragraph at lines 431--431
- [] 
- []
-
-[46
-
- <./bayesClassifier3.png>]
-<bayesClassifier4.png, id=364, 856.19875pt x 510.90875pt>
-File: bayesClassifier4.png Graphic file (type png)
-
-<use bayesClassifier4.png>
-Package pdftex.def Info: bayesClassifier4.png used on input line 436.
-(pdftex.def)             Requested size: 342.47343pt x 204.35988pt.
-
-Overfull \hbox (35.18356pt too wide) in paragraph at lines 436--436
- [] 
- []
-
-
-Overfull \vbox (1.8893pt too high) detected at line 436
- []
-
-[47
-
- <./bayesClassifier4.png>]
-<bayesClassifier5.png, id=371, 814.04124pt x 389.455pt>
-File: bayesClassifier5.png Graphic file (type png)
-
-<use bayesClassifier5.png>
-Package pdftex.def Info: bayesClassifier5.png used on input line 441.
-(pdftex.def)             Requested size: 325.61072pt x 155.77924pt.
-
-Overfull \hbox (18.32085pt too wide) in paragraph at lines 441--441
- [] 
- []
-
-[48
-
- <./bayesClassifier5.png>]
-<bayesClassifier6.png, id=378, 868.24374pt x 502.87875pt>
-File: bayesClassifier6.png Graphic file (type png)
-
-<use bayesClassifier6.png>
-Package pdftex.def Info: bayesClassifier6.png used on input line 446.
-(pdftex.def)             Requested size: 347.29134pt x 201.14793pt.
-
-Overfull \hbox (40.00146pt too wide) in paragraph at lines 446--446
- [] 
- []
-
-[49
-
- <./bayesClassifier6.png>]
-<bayesClassifier7.png, id=386, 836.12375pt x 505.89pt>
-File: bayesClassifier7.png Graphic file (type png)
-
-<use bayesClassifier7.png>
-Package pdftex.def Info: bayesClassifier7.png used on input line 451.
-(pdftex.def)             Requested size: 334.44357pt x 202.3524pt.
-
-Overfull \hbox (27.1537pt too wide) in paragraph at lines 451--451
- [] 
- []
-
-[50
-
- <./bayesClassifier7.png>]
-<bayesClassifier8.png, id=393, 876.27374pt x 513.92pt>
-File: bayesClassifier8.png Graphic file (type png)
-
-<use bayesClassifier8.png>
-Package pdftex.def Info: bayesClassifier8.png used on input line 456.
-(pdftex.def)             Requested size: 315.4583pt x 185.01105pt.
-
-Overfull \hbox (8.16843pt too wide) in paragraph at lines 456--456
- [] 
- []
-
-[51
-
- <./bayesClassifier8.png>]
-<bayesClassifier9.png, id=400, 839.135pt x 523.9575pt>
-File: bayesClassifier9.png Graphic file (type png)
-
-<use bayesClassifier9.png>
-Package pdftex.def Info: bayesClassifier9.png used on input line 461.
-(pdftex.def)             Requested size: 335.64804pt x 209.57928pt.
-
-Overfull \hbox (28.35817pt too wide) in paragraph at lines 461--461
- [] 
- []
-
-
-Overfull \vbox (7.1087pt too high) detected at line 461
- []
-
-[52
-
- <./bayesClassifier9.png>]
-<bayesClassifier10.png, id=407, 810.02625pt x 483.8075pt>
-File: bayesClassifier10.png Graphic file (type png)
-
-<use bayesClassifier10.png>
-Package pdftex.def Info: bayesClassifier10.png used on input line 466.
-(pdftex.def)             Requested size: 324.00475pt x 193.51956pt.
-
-Overfull \hbox (16.71487pt too wide) in paragraph at lines 466--466
- [] 
- []
-
-[53
-
- <./bayesClassifier10.png>]
-<bayesClassifier11.png, id=414, 891.33pt x 499.8675pt>
-File: bayesClassifier11.png Graphic file (type png)
-
-<use bayesClassifier11.png>
-Package pdftex.def Info: bayesClassifier11.png used on input line 471.
-(pdftex.def)             Requested size: 320.87856pt x 179.95215pt.
-
-Overfull \hbox (13.58868pt too wide) in paragraph at lines 471--471
- [] 
- []
-
-[54
-
- <./bayesClassifier11.png>]
-<bayesClassifier12.png, id=421, 832.10875pt x 502.87875pt>
-File: bayesClassifier12.png Graphic file (type png)
-
-<use bayesClassifier12.png>
-Package pdftex.def Info: bayesClassifier12.png used on input line 476.
-(pdftex.def)             Requested size: 266.28024pt x 160.92448pt.
- [55
-
- <./bayesClassifier12.png>] [56
-
-]
-<hyerplane1.png, id=436, 965.6075pt x 600.2425pt>
-File: hyerplane1.png Graphic file (type png)
- <use hyerplane1.png>
-Package pdftex.def Info: hyerplane1.png used on input line 491.
-(pdftex.def)             Requested size: 309.00072pt x 192.08151pt.
-
-Overfull \hbox (1.71085pt too wide) in paragraph at lines 491--491
- [] 
- []
-
-[57
-
- <./hyerplane1.png>] <hyerplane2.png, id=443, 753.81625pt x 698.61pt>
-File: hyerplane2.png Graphic file (type png)
-
-<use hyerplane2.png>
-Package pdftex.def Info: hyerplane2.png used on input line 496.
-(pdftex.def)             Requested size: 241.22614pt x 223.55977pt.
-
-Overfull \vbox (7.48918pt too high) detected at line 496
- []
-
-[58
-
- <./hyerplane2.png>] <svm1.png, id=450, 855.195pt x 494.84875pt>
-File: svm1.png Graphic file (type png)
-
-<use svm1.png>
-Package pdftex.def Info: svm1.png used on input line 501.
-(pdftex.def)             Requested size: 273.668pt x 158.35483pt.
- [59
-
- <./svm1.png>] <svm2.png, id=457, 731.73375pt x 509.905pt>
-File: svm2.png Graphic file (type png)
-
-<use svm2.png>
-Package pdftex.def Info: svm2.png used on input line 506.
-(pdftex.def)             Requested size: 234.15958pt x 163.17293pt.
- [60
-
- <./svm2.png>] <svm3.png, id=464, 658.46pt x 492.84125pt>
-File: svm3.png Graphic file (type png)
-
-<use svm3.png>
-Package pdftex.def Info: svm3.png used on input line 511.
-(pdftex.def)             Requested size: 210.7115pt x 157.71242pt.
- [61
-
- <./svm3.png>] <svm4.png, id=472, 479.7925pt x 429.605pt>
-File: svm4.png Graphic file (type png)
-
-<use svm4.png>
-Package pdftex.def Info: svm4.png used on input line 516.
-(pdftex.def)             Requested size: 153.53673pt x 137.4764pt.
- [62
-
- <./svm4.png>] <svm5.png, id=479, 704.6325pt x 514.92375pt>
-File: svm5.png Graphic file (type png)
-
-<use svm5.png>
-Package pdftex.def Info: svm5.png used on input line 521.
-(pdftex.def)             Requested size: 225.48701pt x 164.77896pt.
- [63
-
- <./svm5.png>] <svm6.png, id=486, 748.7975pt x 503.8825pt>
-File: svm6.png Graphic file (type png)
-
-<use svm6.png>
-Package pdftex.def Info: svm6.png used on input line 526.
-(pdftex.def)             Requested size: 239.62009pt x 161.2457pt.
- [64
-
- <./svm6.png>] <svm7.png, id=493, 870.25125pt x 500.87125pt>
-File: svm7.png Graphic file (type png)
-
-<use svm7.png>
-Package pdftex.def Info: svm7.png used on input line 531.
-(pdftex.def)             Requested size: 278.48608pt x 160.28206pt.
- [65
-
- <./svm7.png>] <svm8.png, id=500, 827.09pt x 507.8975pt>
-File: svm8.png Graphic file (type png)
-
-<use svm8.png>
-Package pdftex.def Info: svm8.png used on input line 536.
-(pdftex.def)             Requested size: 264.6742pt x 162.53052pt.
- [66
-
- <./svm8.png>] <svm9.png, id=507, 759.83875pt x 496.85625pt>
-File: svm9.png Graphic file (type png)
-
-<use svm9.png>
-Package pdftex.def Info: svm9.png used on input line 541.
-(pdftex.def)             Requested size: 243.15337pt x 158.99724pt.
- [67
-
- <./svm9.png>] <svm10.png, id=515, 813.0375pt x 439.6425pt>
-File: svm10.png Graphic file (type png)
-
-<use svm10.png>
-Package pdftex.def Info: svm10.png used on input line 546.
-(pdftex.def)             Requested size: 260.1773pt x 140.68846pt.
- [68
-
- <./svm10.png>]
-<svm11.png, id=522, 757.83125pt x 506.89375pt>
-File: svm11.png Graphic file (type png)
- <use svm11.png>
-Package pdftex.def Info: svm11.png used on input line 551.
-(pdftex.def)             Requested size: 242.51096pt x 162.2093pt.
- [69
-
- <./svm11.png>] <svm12.png, id=529, 742.775pt x 513.92pt>
-File: svm12.png Graphic file (type png)
- <use svm12.png>
-Package pdftex.def Info: svm12.png used on input line 556.
-(pdftex.def)             Requested size: 237.69286pt x 164.45775pt.
- [70
-
- <./svm12.png>] <kernels1.png, id=536, 1040.88875pt x 481.8pt>
-File: kernels1.png Graphic file (type png)
- <use kernels1.png>
-Package pdftex.def Info: kernels1.png used on input line 561.
-(pdftex.def)             Requested size: 333.0912pt x 154.17914pt.
-
-Overfull \hbox (25.80133pt too wide) in paragraph at lines 561--561
- [] 
- []
-
-[71
-
- <./kernels1.png>] <kernels2.png, id=543, 1019.81pt x 564.1075pt>
-File: kernels2.png Graphic file (type png)
-
-<use kernels2.png>
-Package pdftex.def Info: kernels2.png used on input line 566.
-(pdftex.def)             Requested size: 326.34587pt x 180.51808pt.
-
-Overfull \hbox (19.056pt too wide) in paragraph at lines 566--566
- [] 
- []
-
-[72
-
- <./kernels2.png>] <kernels3.png, id=550, 1050.92625pt x 683.55376pt>
-File: kernels3.png Graphic file (type png)
-
-<use kernels3.png>
-Package pdftex.def Info: kernels3.png used on input line 571.
-(pdftex.def)             Requested size: 336.30327pt x 218.74167pt.
-
-Overfull \hbox (29.0134pt too wide) in paragraph at lines 571--571
- [] 
- []
-
-
-Overfull \vbox (16.27109pt too high) detected at line 571
- []
-
-[73
-
- <./kernels3.png>] <kernels4.png, id=558, 991.705pt x 623.32875pt>
-File: kernels4.png Graphic file (type png)
-
-<use kernels4.png>
-Package pdftex.def Info: kernels4.png used on input line 576.
-(pdftex.def)             Requested size: 317.35208pt x 199.46927pt.
-
-Overfull \hbox (10.06221pt too wide) in paragraph at lines 576--576
- [] 
- []
-
-[74
-
- <./kernels4.png>] <kernels5.png, id=565, 1048.91875pt x 643.40375pt>
-File: kernels5.png Graphic file (type png)
-
-<use kernels5.png>
-Package pdftex.def Info: kernels5.png used on input line 581.
-(pdftex.def)             Requested size: 335.66086pt x 205.8934pt.
-
-Overfull \hbox (28.37099pt too wide) in paragraph at lines 581--581
- [] 
- []
-
-
-Overfull \vbox (3.42282pt too high) detected at line 581
- []
-
-[75
-
- <./kernels5.png>] <kernels6.png, id=573, 1007.765pt x 631.35875pt>
-File: kernels6.png Graphic file (type png)
-
-<use kernels6.png>
-Package pdftex.def Info: kernels6.png used on input line 586.
-(pdftex.def)             Requested size: 322.4914pt x 202.03893pt.
-
-Overfull \hbox (15.20152pt too wide) in paragraph at lines 586--586
- [] 
- []
-
-[76
-
- <./kernels6.png>] <kernels7.png, id=580, 1038.88126pt x 606.265pt>
-File: kernels7.png Graphic file (type png)
-
-<use kernels7.png>
-Package pdftex.def Info: kernels7.png used on input line 591.
-(pdftex.def)             Requested size: 332.44879pt x 194.00876pt.
-
-Overfull \hbox (25.15892pt too wide) in paragraph at lines 591--591
- [] 
- []
-
-[77
-
- <./kernels7.png>] <kernels8.png, id=587, 1044.90375pt x 610.28pt>
-File: kernels8.png Graphic file (type png)
-
-<use kernels8.png>
-Package pdftex.def Info: kernels8.png used on input line 596.
-(pdftex.def)             Requested size: 334.37602pt x 195.29358pt.
-
-Overfull \hbox (27.08615pt too wide) in paragraph at lines 596--596
- [] 
- []
-
-[78
-
- <./kernels8.png>] [79
-
-] [80
+] [8
 
 ]
 \tf@nav=\write6
-\openout6 = `09_NaiveBayesSVM.nav'.
+\openout6 = `10_NeuralNetworksDeepLearning.nav'.
 
 \tf@toc=\write7
-\openout7 = `09_NaiveBayesSVM.toc'.
+\openout7 = `10_NeuralNetworksDeepLearning.toc'.
 
 \tf@snm=\write8
-\openout8 = `09_NaiveBayesSVM.snm'.
+\openout8 = `10_NeuralNetworksDeepLearning.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 621.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 621.
- (./09_NaiveBayesSVM.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 621.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 621.
-Package rerunfilecheck Info: File `09_NaiveBayesSVM.out' has not changed.
-(rerunfilecheck)             Checksum: 9C334F2E3207C188E1B4F35D7D9440E0;278.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 107.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 107.
+ (./10_NeuralNetworksDeepLearning.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 107.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 107.
+Package rerunfilecheck Info: File `10_NeuralNetworksDeepLearning.out' has not c
+hanged.
+(rerunfilecheck)             Checksum: C43F5C4DCC55B5B91437324F3CCCBD33;134.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 621.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 107.
  ) 
 Here is how much of TeX's memory you used:
- 17289 strings out of 495021
- 329939 string characters out of 6181343
- 385345 words of memory out of 5000000
- 19883 multiletter control sequences out of 15000+600000
- 18610 words of font info for 68 fonts, out of 8000000 for 9000
+ 16705 strings out of 495021
+ 321152 string characters out of 6181343
+ 381424 words of memory out of 5000000
+ 19493 multiletter control sequences out of 15000+600000
+ 14673 words of font info for 54 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 56i,16n,58p,417b,685s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmss9.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-msy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on 09_NaiveBayesSVM.pdf (80 pages, 2092378 bytes).
+ 56i,16n,55p,430b,685s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmtt9.pfb>
+Output written on 10_NeuralNetworksDeepLearning.pdf (8 pages, 244352 bytes).
 PDF statistics:
- 695 PDF objects out of 1000 (max. 8388607)
- 540 compressed objects within 6 object streams
- 166 named destinations out of 1000 (max. 500000)
- 310 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 112 PDF objects out of 1000 (max. 8388607)
+ 86 compressed objects within 1 object stream
+ 20 named destinations out of 1000 (max. 500000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 

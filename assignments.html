@@ -68,7 +68,7 @@
 
                         <ol>
                             <li> Exploratory Data Analysis using Python, Pandas, Matplotlib and Seaborn.</li>
-                            <li> Classification Algorithms using Scikit-learn</li>
+                            <li> Classification and Regression Algorithms using Scikit-learn</li>
                             <li> Clustering using Scikit-learn</li>
                             <li> Search Engine Basics</li>
                             <li> Recommender Systems</li>
@@ -118,10 +118,70 @@ Once a student runs out of late days, any late submissions are penalized at a ra
                                 <a href="ftp://ftp.fec.gov/FEC/Presidential_Map/2012/DATA_DICTIONARIES/CONTRIBUTOR_FORMAT.txt">[Link]</a> <br/>
                             <b>Notebook: </b> 
                                     <a href="http://saravanan-thirumuruganathan.github.io/cse5334Spring2015/assignments/PA1/PA1_ExploratoryAnalysis_FEC_2012_PresidentialElections.ipynb">[IPynb]</a>
-                                    <a href="http://nbviewer.ipython.org/url/saravanan-thirumuruganathan.github.io/cse5334Spring2015/assignments/PA1/PA1_ExploratoryAnalysis_FEC_2012_PresidentialElections.ipynb">[NBViewer]</a>
+                                    <a href="http://nbviewer.ipython.org/url/saravanan-thirumuruganathan.github.io/cse5334Spring2015/assignments/PA1/PA1_ExploratoryAnalysis_FEC_2012_PresidentialElections.ipynb">[HTML]</a>
                                     <br/>
                             <b>Assignment Survey: </b>  [TBD] <br/>
 
+                        </p>
+
+                    </div>
+                </div>
+
+<p></p>
+                
+                
+                
+                <div class="panel">
+                    <div class="panel-header bg-lightBlue fg-white">
+                        PA II: Classification of MNIST Handwritten Digits and Regression of House Prices through Boston Dataset
+                    </div>
+                    <div class="panel-content">
+                        <p>
+At a high level, you will be building and evaluating different classifiers for recognizing handwritten digits of MNIST dataset and also build an evaluate various regression models for predicting house prices in Boston. At a more granular level, you will be doing the following:
+</p><p> 
+
+<strong>1. Binary Classification of MNIST Dataset </strong> 
+<br/>
+
+In the first set of tasks, you will evaluate a number of popular classifiers for the task of recognizing handwritten digits from MNIST dataset. Specifically, we will focus on distinguishing between 7 and 9 which are known to be a hard pair. We will not use any sophisticated ideas from Computer Vision/Image Processing and use classifiers directly over the data. The idea is to show that lot of times, you can simply run a set of classifiers and still get great results. While I will be giving some basic classifier code, you will have some opportunity to improve them by tuning the parameters.
+<br/>
+<strong>2. Multi-Class Classification of MNIST Dataset</strong>
+<br/>
+
+In the second set of tasks, we will do multi-class classification where the idea is to classify the image to one of the ten digits (0-9). We will start with some basic classifiers that are intrinsically multi-class. Then we will learn about how to convert binary classifiers to multi-class classifiers and how scikit-learn makes it very easy.
+<br/>
+<strong>3. Exploration of Different Evaluation Metrics</strong>
+<br/>
+
+In the first two set of tasks, we will narrowly focus on accuracy - what fraction of our predictions were correct. However, there are a number of popular evaluation metrics. You will learn how (and when) to use these evaluation metrics.
+<br/>
+<strong>4. Parameter Tuning through Grid Search/Cross Validation and Parallelization</strong>
+<br/>
+
+This is an advanced topic where you will learn how to tune your classifier and find optimal parameters. We will explore two powerful techniques of grid search and parameter search. This is a very compute intensive task - so you will also explore how to leverage parallelization capabilities of IPython kernel to get results sooner.
+<br/>
+<strong>5. Evaluation of Various Regression Models for Boston Houses Dataset</strong>
+<br/>
+
+In the final set of tasks, we will use regression to predict Boston house prices. We will explore both Ordinary Least Squares and also explore other regression variant of popular classifiers such as decision trees and SVM.
+                        </p>
+
+                        <p>
+                            This is a relatively easy assignment. But some of the classifiers might take a lot of time to run.
+                            So please form a team and start early!
+                        </p>
+
+                        <p>
+                            <b>Deadline: </b>  15-Mar, 2015 <br/>
+                            <b>Dataset: </b> 
+                                <a href="http://mldata.org/repository/data/download/matlab/mnist-original/">
+                                        [Link]</a> (download the dataset in Matlab format). 
+                                        The notebook also has some helper functions that can automatically download the data for you.
+                                <br/>
+                            <b>Notebook: </b> 
+                                    <a href="http://saravanan-thirumuruganathan.github.io/cse5334Spring2015/assignments/PA2/PPA2_MNIST_Classification_Boston_Regression.ipynb">[IPynb]</a>
+                                    <a href="http://saravanan-thirumuruganathan.github.io/cse5334Spring2015/assignments/PA2/PPA2_MNIST_Classification_Boston_Regression.html">[HTML]</a>
+                                    <br/>
                         </p>
 
                     </div>

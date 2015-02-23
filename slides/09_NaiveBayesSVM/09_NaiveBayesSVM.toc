@@ -3,4 +3,4 @@
 \beamer@sectionintoc {2}{Probabilistic Interpretation of Classification}{3}{0}{2}
 \beamer@sectionintoc {3}{Bayesian Classifiers}{43}{0}{3}
 \beamer@sectionintoc {4}{Support Vector Machines}{56}{0}{4}
-\beamer@sectionintoc {5}{Summary}{57}{0}{5}
+\beamer@sectionintoc {5}{Summary}{79}{0}{5}
