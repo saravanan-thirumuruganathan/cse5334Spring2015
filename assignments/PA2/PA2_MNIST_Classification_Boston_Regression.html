@@ -1683,9 +1683,9 @@ div#notebook {
 <h1 id="programming-assignment-2-classification-of-mnist-handwritten-digits-and-regression-of-house-prices-through-boston-dataset">Programming Assignment 2: Classification of MNIST Handwritten Digits and Regression of House Prices through Boston Dataset</h1>
 <h3 id="team-details">Team Details:</h3>
 <p>When submitting, fill your team details in this cell. Note that this is a markdown cell.</p>
-<p><strong>Student 1 Full Name and ID:</strong></p>
-<p><strong>Student 2 Full Name and ID:</strong></p>
-<p><strong>Student 3 Full Name and ID:</strong></p>
+<p><strong>Student 1 Full Name:</strong> <strong>Student 1 Full ID:</strong> <strong>Student 1 Full Email Address:</strong></p>
+<p><strong>Student 2 Full Name:</strong> <strong>Student 2 Full ID:</strong> <strong>Student 2 Full Email Address:</strong></p>
+<p><strong>Student 3 Full Name:</strong> <strong>Student 3 Full ID:</strong> <strong>Student 3 Full Email Address:</strong></p>
 </div>
 </div>
 </div>
@@ -1712,7 +1712,7 @@ div#notebook {
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[1]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
@@ -1746,8 +1746,15 @@ In&nbsp;[]:
 <span class="kn">from</span> <span class="nn">sklearn.grid_search</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
 
 <span class="c">########You have to install the python package pydot for generating some graph figures</span>
+<span class="c">########   If you are using pip, the command is pip install pydot</span>
 <span class="c">########You will also need to download Graphviz from http://www.graphviz.org/Download.php</span>
-<span class="c">########If you are using Windows, make sure that Graphviz/dot are in Path and can be used by pydot package.</span>
+<span class="c">########If you are using Windows, make sure that Graphviz/dot are in path and can be used by pydot package.</span>
+<span class="c">########If you get any pydot error, see url for one possible solution</span>
+<span class="c">######## http://stackoverflow.com/questions/15951748/pydot-and-graphviz-error-couldnt-import-dot-parser-loading-of-dot-files-will</span>
+<span class="c">######## If you are using Anaconda, pydot can be installed as conda install pydot</span>
+<span class="c">######## If that does not work check url:</span>
+<span class="c">########   http://stackoverflow.com/questions/27482170/installing-pydot-and-graphviz-packages-in-anaconda-environment</span>
+
 <span class="kn">import</span> <span class="nn">pydot</span><span class="o">,</span> <span class="nn">StringIO</span> 
 
 
@@ -1884,12 +1891,13 @@ In&nbsp;[]:
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">
-In&nbsp;[]:
+In&nbsp;[2]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c"># The following are some utility functions to help you visualize k-NN</span>
-<span class="c"># Do not change anything in this cell.</span>
+<div class="highlight"><pre><span class="c"># Do not change anything in this cell.</span>
+<span class="c"># The following are some utility functions to help you visualize k-NN</span>
+
 
 <span class="c">#Code courtesy AMPLab</span>
 
@@ -1926,7 +1934,8 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#The code below creates a K-NN classifier with k=1.</span>
+<div class="highlight"><pre><span class="c"># Do not change anything in this cell.</span>
+<span class="c">#The code below creates a K-NN classifier with k=1.</span>
 <span class="c">#Clearly observe how I do it step by step.</span>
 
 <span class="c">#Step 1: Create a classifier with appropriate parameters</span>
@@ -1957,9 +1966,12 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Using the above code as model, create a KNN classifier with k=3</span>
+<div class="highlight"><pre><span class="c">#task t1a</span>
+<span class="c">#Using the above code as model, create a KNN classifier with k=3</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">knn_model_k3</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">knn_model_k3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_knn_model_k3</span> <span class="o">=</span> <span class="bp">None</span>                                                 
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span> <span class="n">predictions_knn_model_k3</span><span class="p">)</span>
 
@@ -1980,9 +1992,12 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Using the above code as model, create a KNN classifier with k=5</span>
+<div class="highlight"><pre><span class="c">#task t1b</span>
+<span class="c">#Using the above code as model, create a KNN classifier with k=5</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">knn_model_k5</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">knn_model_k5</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_knn_model_k5</span> <span class="o">=</span> <span class="bp">None</span>                                                 
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span> <span class="n">predictions_knn_model_k5</span><span class="p">)</span>
 
@@ -2003,16 +2018,17 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Now let us evaluate KNN for different values of K and find the best K</span>
+<div class="highlight"><pre><span class="c">#task t1c</span>
+<span class="c">#Now let us evaluate KNN for different values of K and find the best K</span>
 <span class="c">#WARNING: This code will take 20-40 minutes to run. So make sure your code is correct</span>
 <span class="n">k_vals</span> <span class="o">=</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="c">#Initialize to 0</span>
 <span class="n">accuracy_vals</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">k_vals</span><span class="p">]</span> 
 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">k_vals</span><span class="p">:</span>
-    <span class="c">#Create a KNN with number of neighbors = k</span>
+    <span class="c">#Create a KNN with number of neighbors = k  - #Change the following line as appropriate</span>
     <span class="n">knn_model_for_knn_k</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="n">knn_model_for_knn_k</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
-    <span class="c">#Make the prediction</span>
+    <span class="c">#Make the prediction - #Change the following line as appropriate</span>
     <span class="n">predictions_for_knn_k</span> <span class="o">=</span> <span class="bp">None</span>
     <span class="n">accuracy_vals</span><span class="p">[</span><span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span> <span class="n">predictions_for_knn_k</span><span class="p">)</span>
     
@@ -2022,7 +2038,7 @@ In&nbsp;[]:
 <span class="c"># Hint: use np.argmax command.</span>
 <span class="c"># Also dont forget to add 1 to opt_k to correct the off by one error </span>
 <span class="c">#     (as k varied from 1 to 20 while accuracy_vals[k] started from 0)</span>
-<span class="n">opt_k</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">opt_k</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">##Change the following line as appropriate</span>
 </pre></div>
 
 </div>
@@ -2037,7 +2053,9 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Train the model with optimal k that we have seen so far</span>
+<div class="highlight"><pre><span class="c">#task t1d</span>
+<span class="c">#Train the model with optimal k that we have seen so far</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">knn_model_opt_k</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">knn_model_opt_k</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
 <span class="n">predictions_for_knn_opt_k</span> <span class="o">=</span> <span class="n">knn_model_opt_k</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">binary_class_testing_data</span><span class="p">)</span>
@@ -2056,9 +2074,11 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">##############################Read the parameter values in the url</span>
+<div class="highlight"><pre><span class="c">#(Harder)task t1e</span>
+<span class="c">##############################Read the parameter values in the url</span>
 <span class="c"># http://scikit-learn.org/stable/modules/generated/sklearn.neighbors.KNeighborsClassifier.html#sklearn.neighbors.KNeighborsClassifier</span>
 <span class="c">#Try different combinations of the parameters so that you can beat the accuracy of knn_model_opt_k</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">knn_model_opt_k_student</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">knn_model_opt_k_student</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
 <span class="n">predictions_for_knn_opt_k_student</span> <span class="o">=</span> <span class="n">knn_model_opt_k_student</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">binary_class_testing_data</span><span class="p">)</span>
@@ -2111,15 +2131,18 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a CART decision tree with DEFAULT values</span>
+<div class="highlight"><pre><span class="c">#task t2a</span>
+<span class="c">#Create a CART decision tree with DEFAULT values</span>
 <span class="c">#Remember to set the random state to 1234</span>
-<span class="n">cart_model_default</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#You only need to change here</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">cart_model_default</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="n">cart_model_default</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">cart_model_default</span><span class="p">)</span> 
 <span class="n">fileName</span> <span class="o">=</span> <span class="s">&#39;dtree_default.png&#39;</span>
 <span class="n">plot_dtree</span><span class="p">(</span><span class="n">cart_model_default</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">fileName</span><span class="p">)</span>
-<span class="n">predictions_dtree_default</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change this line to make predictions</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_dtree_default</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_dtree_default</span><span class="p">)</span> 
 </pre></div>
 
@@ -2135,15 +2158,18 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a CART decision tree with splitting criterion as entropy</span>
+<div class="highlight"><pre><span class="c">#task t2b</span>
+<span class="c">#Create a CART decision tree with splitting criterion as entropy</span>
 <span class="c">#Remember to set the random state to 1234</span>
-<span class="n">cart_model_entropy</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#You only need to change here</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">cart_model_entropy</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="n">cart_model_entropy</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">cart_model_entropy</span><span class="p">)</span> 
 <span class="n">fileName</span> <span class="o">=</span> <span class="s">&#39;dtree_entropy.png&#39;</span>
 <span class="n">plot_dtree</span><span class="p">(</span><span class="n">cart_model_entropy</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">fileName</span><span class="p">)</span>
-<span class="n">predictions_dtree_entropy</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change this line to make predictions</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_dtree_entropy</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_dtree_entropy</span><span class="p">)</span> 
 </pre></div>
 
@@ -2159,15 +2185,18 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a CART decision tree with splitting criterion as entropy and min_samples_leaf as 100</span>
+<div class="highlight"><pre><span class="c">#task t2c</span>
+<span class="c">#Create a CART decision tree with splitting criterion as entropy and min_samples_leaf as 100</span>
 <span class="c">#Remember to set the random state to 1234</span>
-<span class="n">cart_model_entropy_limit_leaves</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#You only need to change here</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">cart_model_entropy_limit_leaves</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="n">cart_model_entropy_limit_leaves</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">cart_model_entropy_limit_leaves</span><span class="p">)</span> 
 <span class="n">fileName</span> <span class="o">=</span> <span class="s">&#39;dtree_entropy_limit_leaves.png&#39;</span>
 <span class="n">plot_dtree</span><span class="p">(</span><span class="n">cart_model_entropy_limit_leaves</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">fileName</span><span class="p">)</span>
-<span class="n">predictions_dtree_entropy_limit_leaves</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change this line to make predictions</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_dtree_entropy_limit_leaves</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_dtree_entropy_limit_leaves</span><span class="p">)</span> 
 </pre></div>
 
@@ -2183,16 +2212,18 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a CART decision tree that beats the three models above</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t2d</span>
+<span class="c">#Create a CART decision tree that beats the three models above</span>
 <span class="c"># You might want to consult the url</span>
 <span class="c"># http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier</span>
-
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">cart_model_student</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#Create the model with parameters that beats the models above</span>
 <span class="n">cart_model_student</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">cart_model_student</span><span class="p">)</span>
 <span class="n">fileName</span> <span class="o">=</span> <span class="s">&#39;dtree_model_student.png&#39;</span>
 <span class="n">plot_dtree</span><span class="p">(</span><span class="n">cart_model_student</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span>
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">fileName</span><span class="p">)</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_dtree_student</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change this line to make predictions</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span> <span class="n">predictions_dtree_student</span><span class="p">)</span> 
 </pre></div>
@@ -2219,10 +2250,13 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a Gaussian NB</span>
+<div class="highlight"><pre><span class="c">#task t3a</span>
+<span class="c">#Create a Gaussian NB</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">nb_gaussian_model</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#create the model</span>
 <span class="n">nb_gaussian_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">nb_gaussian_model</span><span class="p">)</span> 
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_gaussian_nb</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#make the predictions</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_gaussian_nb</span><span class="p">)</span> 
 </pre></div>
@@ -2239,10 +2273,13 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Now create multinomial NB</span>
+<div class="highlight"><pre><span class="c">#task t3b</span>
+<span class="c">#Now create multinomial NB</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">nb_multinomial_model</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#create the model</span>
 <span class="n">nb_multinomial_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">nb_multinomial_model</span><span class="p">)</span> 
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_multinomial_nb</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#make the predictions</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_multinomial_nb</span><span class="p">)</span>
 </pre></div>
@@ -2259,10 +2296,13 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Now create a binomial NB</span>
+<div class="highlight"><pre><span class="c">#task t3c</span>
+<span class="c">#Now create a binomial NB</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">nb_binomial_model</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#create the model</span>
 <span class="n">nb_binomial_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">nb_binomial_model</span><span class="p">)</span> 
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_binomial_nb</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#make the predictions</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_binomial_nb</span><span class="p">)</span>
 </pre></div>
@@ -2289,12 +2329,15 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a SVM using SVC class. Remember to set random state to 1234.</span>
+<div class="highlight"><pre><span class="c">#task t4a</span>
+<span class="c">#Create a SVM using SVC class. Remember to set random state to 1234.</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">svc_svm_model</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#Change this line</span>
 <span class="n">svc_svm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>                         
-<span class="k">print</span><span class="p">(</span><span class="n">svc_svm_model</span><span class="p">)</span>                                                                                                         
+<span class="k">print</span><span class="p">(</span><span class="n">svc_svm_model</span><span class="p">)</span>                    
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_svm_svc</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#Chane this line                                                       </span>
-<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_svm_svc</span><span class="p">)</span>                                                
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_svm_svc</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2309,11 +2352,14 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Now create a linear SVM model using LinearSVC class. Remember to set random state to 1234.</span>
-<span class="n">linear_svc_svm_model</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#Change this line</span>
+<div class="highlight"><pre><span class="c">#task t4b</span>
+<span class="c">#Now create a linear SVM model using LinearSVC class. Remember to set random state to 1234.</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">linear_svc_svm_model</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="n">linear_svc_svm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>            
-<span class="k">print</span><span class="p">(</span><span class="n">linear_svc_svm_model</span><span class="p">)</span>                                                                                                  
-<span class="n">predictions_linear_svm_svc</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change this line                                        </span>
+<span class="k">print</span><span class="p">(</span><span class="n">linear_svc_svm_model</span><span class="p">)</span>       
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_linear_svm_svc</span> <span class="o">=</span> <span class="bp">None</span>                                        
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_linear_svm_svc</span><span class="p">)</span>  
 </pre></div>
 
@@ -2329,12 +2375,14 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#####Either using SVC or LinearSVC, try tweaking the parameters so that you beat the two models above</span>
-
-<span class="n">svc_svm_model_student</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#Change this line</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t4c</span>
+<span class="c">#####Either using SVC or LinearSVC, try tweaking the parameters so that you beat the two models above</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">svc_svm_model_student</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="n">svc_svm_model_student</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>                         
-<span class="k">print</span><span class="p">(</span><span class="n">svc_svm_model_student</span><span class="p">)</span>                                                                                                         
-<span class="n">predictions_svm_svc_student</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#Chane this line                                                       </span>
+<span class="k">print</span><span class="p">(</span><span class="n">svc_svm_model_student</span><span class="p">)</span>   
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_svm_svc_student</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_svm_svc_student</span><span class="p">)</span> 
 </pre></div>
 
@@ -2360,9 +2408,12 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a model with default parameters. Remember to set random state to 1234</span>
+<div class="highlight"><pre><span class="c">#task t5a</span>
+<span class="c">#Create a model with default parameters. Remember to set random state to 1234</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">lr_model_default</span> <span class="o">=</span> <span class="bp">None</span>            
 <span class="n">lr_model_default</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_lr_model_default</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_lr_model_default</span><span class="p">)</span>
 </pre></div>
@@ -2379,9 +2430,12 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Now try to beat the model above by tweaking the parameters. Remember to set random state to 1234.</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t5b</span>
+<span class="c">#Now try to beat the model above by tweaking the parameters. Remember to set random state to 1234.</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">lr_model_default_student</span> <span class="o">=</span> <span class="bp">None</span>            
 <span class="n">lr_model_default_student</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_lr_model_default_student</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_lr_model_default_student</span><span class="p">)</span>
 </pre></div>
@@ -2408,10 +2462,13 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a perceptron model with default parameters and random state = 1234</span>
+<div class="highlight"><pre><span class="c">#task t6a</span>
+<span class="c">#Create a perceptron model with default parameters and random state = 1234</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">perceptron_model_default</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">perceptron_model_default</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>       
-<span class="k">print</span><span class="p">(</span><span class="n">perceptron_model_default</span><span class="p">)</span>                                                                                              
+<span class="k">print</span><span class="p">(</span><span class="n">perceptron_model_default</span><span class="p">)</span>                 
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_perceptron_default</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_perceptron_default</span><span class="p">)</span>    
 </pre></div>
@@ -2438,10 +2495,13 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a random forest classifier with Default parameters</span>
+<div class="highlight"><pre><span class="c">#task t7a</span>
+<span class="c">#Create a random forest classifier with Default parameters</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">rf_model_default</span> <span class="o">=</span> <span class="bp">None</span>                                                                   
 <span class="n">rf_model_default</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">all_train_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>                                                                    
-<span class="k">print</span><span class="p">(</span><span class="n">rf_model_default</span><span class="p">)</span>                                                                                                   
+<span class="k">print</span><span class="p">(</span><span class="n">rf_model_default</span><span class="p">)</span>            
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_rf_default</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_rf_default</span><span class="p">)</span> 
 </pre></div>
@@ -2458,10 +2518,13 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a random forest classifier that can beat the above default model.</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t7b</span>
+<span class="c">#Create a random forest classifier that can beat the above default model.</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">rf_model_default_student</span> <span class="o">=</span> <span class="bp">None</span>                                                                   
 <span class="n">rf_model_default_student</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">all_train_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>                                                                    
-<span class="k">print</span><span class="p">(</span><span class="n">rf_model_default_student</span><span class="p">)</span>                                                                                                   
+<span class="k">print</span><span class="p">(</span><span class="n">rf_model_default_student</span><span class="p">)</span>        
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_rf_default_student</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_rf_default_student</span><span class="p">)</span> 
 </pre></div>
@@ -2495,10 +2558,13 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a KNN Classifier for K=5 and train it on **scaled** training data and test it on scaled testing data</span>
-<span class="n">mc_knn_model_k</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here</span>
+<div class="highlight"><pre><span class="c">#task t8a</span>
+<span class="c">#Create a KNN Classifier for K=5 and train it on **scaled** training data and test it on scaled testing data</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">mc_knn_model_k</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="n">mc_knn_model_k</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_training_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>
-<span class="n">predictions_mc_knn_model</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_mc_knn_model</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span> <span class="n">predictions_mc_knn_model</span><span class="p">)</span>
 </pre></div>
 
@@ -2514,15 +2580,18 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a Decision tree with DEFAULT parameters and train it on **scaled** training data and test it on scaled testing data</span>
+<div class="highlight"><pre><span class="c">#task t8b</span>
+<span class="c">#Create a Decision tree with DEFAULT parameters and train it on **scaled** training data and test it on scaled testing data</span>
 <span class="c">#Remember to set random state to 1234</span>
-<span class="n">mc_cart_model_default</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">mc_cart_model_default</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="n">mc_cart_model_default</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_training_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">mc_cart_model_default</span><span class="p">)</span>
 <span class="n">fileName</span> <span class="o">=</span> <span class="s">&#39;mc_dtree_default.png&#39;</span> 
 <span class="n">plot_dtree</span><span class="p">(</span><span class="n">mc_cart_model_default</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span> 
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">fileName</span><span class="p">)</span>
-<span class="n">predictions_mc_dtree_default</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_mc_dtree_default</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span> <span class="n">predictions_mc_dtree_default</span><span class="p">)</span>
 </pre></div>
 
@@ -2538,15 +2607,18 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Using the multi classs decision tree above make some changes so that you can beat it.</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t8c</span>
+<span class="c">#Using the multi classs decision tree above make some changes so that you can beat it.</span>
 <span class="c"># Remember to set random state to 1234</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">mc_cart_model_student</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">mc_cart_model_student</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_training_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">mc_cart_model_student</span><span class="p">)</span>
 <span class="n">fileName</span> <span class="o">=</span> <span class="s">&#39;mc_dtree_student.png&#39;</span> 
 <span class="n">plot_dtree</span><span class="p">(</span><span class="n">mc_cart_model_student</span><span class="p">,</span> <span class="n">fileName</span><span class="p">)</span> 
 <span class="n">Image</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="n">fileName</span><span class="p">)</span>
-<span class="n">predictions_mc_dtree_student</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_mc_dtree_student</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span> <span class="n">predictions_mc_dtree_student</span><span class="p">)</span>
 </pre></div>
 
@@ -2562,11 +2634,14 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a multi class classifier based on random forest with default parameters.</span>
-<span class="n">mc_rf_model_default</span> <span class="o">=</span> <span class="bp">None</span>   <span class="c">#change here</span>
+<div class="highlight"><pre><span class="c">#task t8d</span>
+<span class="c">#Create a multi class classifier based on random forest with default parameters.</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">mc_rf_model_default</span> <span class="o">=</span> <span class="bp">None</span>   
 <span class="n">mc_rf_model_default</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">all_train_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mc_rf_model_default</span><span class="p">)</span>                               
-<span class="n">predictions_mc_rf_default</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here </span>
+<span class="k">print</span><span class="p">(</span><span class="n">mc_rf_model_default</span><span class="p">)</span>      
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_mc_rf_default</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_mc_rf_default</span><span class="p">)</span>
 </pre></div>
 
@@ -2582,11 +2657,14 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Tune the random forest classifier so that it beats the default model above</span>
-<span class="n">mc_rf_model_student</span> <span class="o">=</span> <span class="bp">None</span>   <span class="c">#change here</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t8e</span>
+<span class="c">#Tune the random forest classifier so that it beats the default model above</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">mc_rf_model_student</span> <span class="o">=</span> <span class="bp">None</span>   
 <span class="n">mc_rf_model_student</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">all_train_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">mc_rf_model_student</span><span class="p">)</span>                               
-<span class="n">predictions_mc_rf_student</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here </span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_mc_rf_student</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_mc_rf_student</span><span class="p">)</span>
 </pre></div>
 
@@ -2602,11 +2680,14 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a SVM based OneVsRestClassifier Set random state to 1234</span>
-<span class="n">mc_ovr_linear_svc_svm_model</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here</span>
+<div class="highlight"><pre><span class="c">#task t8f</span>
+<span class="c">#Create a SVM based OneVsRestClassifier Set random state to 1234</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">mc_ovr_linear_svc_svm_model</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="n">mc_ovr_linear_svc_svm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_training_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">mc_ovr_linear_svc_svm_model</span><span class="p">)</span>   
-<span class="n">predictions_mc_ovr_linear_svm_svc</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_mc_ovr_linear_svm_svc</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_mc_ovr_linear_svm_svc</span><span class="p">)</span> 
 </pre></div>
 
@@ -2622,11 +2703,14 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Tune the model above so that it beats the default classifier.  Set random state to 1234</span>
-<span class="n">mc_ovr_linear_svc_svm_model_student</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t8g</span>
+<span class="c">#Tune the model above so that it beats the default classifier.  Set random state to 1234</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">mc_ovr_linear_svc_svm_model_student</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="n">mc_ovr_linear_svc_svm_model_student</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_training_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">mc_ovr_linear_svc_svm_model_student</span><span class="p">)</span>   
-<span class="n">predictions_mc_ovr_linear_svm_svc_student</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">predictions_mc_ovr_linear_svm_svc_student</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_mc_ovr_linear_svm_svc_student</span><span class="p">)</span> 
 </pre></div>
 
@@ -2642,10 +2726,13 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a SVM based OneVsOneClassifier. Set random state to 1234</span>
+<div class="highlight"><pre><span class="c">#task t8h</span>
+<span class="c">#Create a SVM based OneVsOneClassifier. Set random state to 1234</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">mc_ovo_linear_svc_svm_model</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">mc_ovo_linear_svc_svm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_training_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">mc_ovo_linear_svc_svm_model</span><span class="p">)</span>   
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_mc_ovo_linear_svm_svc</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_mc_ovo_linear_svm_svc</span><span class="p">)</span>   
 </pre></div>
@@ -2662,10 +2749,13 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Tune the model so that it beats the classifier above. Set random state to 1234</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t8i</span>
+<span class="c">#Tune the model so that it beats the classifier above. Set random state to 1234</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">mc_ovo_linear_svc_svm_model</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">mc_ovo_linear_svc_svm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_training_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>
 <span class="k">print</span><span class="p">(</span><span class="n">mc_ovo_linear_svc_svm_model</span><span class="p">)</span>   
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_mc_ovo_linear_svm_svc</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_mc_ovo_linear_svm_svc</span><span class="p">)</span>   
 </pre></div>
@@ -2692,11 +2782,14 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#assign the best multi class classification model that you found above.</span>
+<div class="highlight"><pre><span class="c">#task t9a</span>
+<span class="c">#assign the best multi class classification model that you found above.</span>
 <span class="c"># For eg, depending on which decision tree model is best </span>
 <span class="c">#  set best_dtree_model to either mc_cart_model_default or mc_cart_model_student</span>
 <span class="c"># Similarly do for other models as well. </span>
 <span class="c"># Remember to assign the MODEL variable</span>
+
+<span class="c">#Change the following lines as appropriate</span>
 <span class="n">best_knn_model</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="n">best_dtree_model</span> <span class="o">=</span> <span class="bp">None</span> 
 <span class="n">best_rf_model</span> <span class="o">=</span> <span class="bp">None</span>    
@@ -2716,7 +2809,9 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create predictions of these 5 models on test dataset</span>
+<div class="highlight"><pre><span class="c">#task t9b</span>
+<span class="c">#Create predictions of these 5 models on test dataset</span>
+<span class="c">#Change the following lines as appropriate</span>
 <span class="n">predictions_best_knn_model</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">predictions_best_dtree_model</span> <span class="o">=</span> <span class="bp">None</span>
 <span class="n">predictions_best_rf_model</span> <span class="o">=</span> <span class="bp">None</span>
@@ -2736,7 +2831,9 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Print the classification report for each of the models above</span>
+<div class="highlight"><pre><span class="c">#task t9c</span>
+<span class="c">#Print the classification report for each of the models above</span>
+<span class="c">#  Write code here</span>
 </pre></div>
 
 </div>
@@ -2751,7 +2848,9 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Print the confusion matrix for each of the models above</span>
+<div class="highlight"><pre><span class="c">#task t9d</span>
+<span class="c">#Print the confusion matrix for each of the models above</span>
+<span class="c">#  Write code here</span>
 </pre></div>
 
 </div>
@@ -2766,10 +2865,12 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Each of the model above has some probabilistic interpretation</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t9e</span>
+<span class="c">#Each of the model above has some probabilistic interpretation</span>
 <span class="c"># So sklearn allows you to get the probability values as part of classification</span>
 <span class="c"># Using this information, you can print roc_curve</span>
 <span class="c">#Print the roc curve for each of the models above</span>
+<span class="c">#  Write code here</span>
 </pre></div>
 
 </div>
@@ -2784,9 +2885,11 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#For each model, DRAW the ROC curve</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t9f</span>
+<span class="c">#For each model, DRAW the ROC curve</span>
 <span class="c"># See url below for details</span>
 <span class="c">#http://nbviewer.ipython.org/github/datadave/GADS9-NYC-Spring2014-Lectures/blob/master/lessons/lesson09_decision_trees_random_forests/sklearn_decision_trees.ipynb</span>
+<span class="c">#  Write code here</span>
 </pre></div>
 
 </div>
@@ -2801,7 +2904,9 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Print the AUC value for each of the models above</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t9g</span>
+<span class="c">#Print the AUC value for each of the models above</span>
+<span class="c">#  Write code here</span>
 </pre></div>
 
 </div>
@@ -2816,7 +2921,9 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Print the precision recall curve for each of the models above</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t9h</span>
+<span class="c">#Print the precision recall curve for each of the models above</span>
+<span class="c">#  Write code here</span>
 </pre></div>
 
 </div>
@@ -2843,7 +2950,8 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="n">all_scaled_data</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">data</span> <span class="o">/</span> <span class="mf">255.0</span>
+<div class="highlight"><pre><span class="c">###Do not make any change below</span>
+<span class="n">all_scaled_data</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">data</span> <span class="o">/</span> <span class="mf">255.0</span>
 <span class="n">all_scaled_target</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">target</span>
 </pre></div>
 
@@ -2859,10 +2967,12 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Tuning SVC SVM model for MNIST</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t10a</span>
+<span class="c">#Tuning SVC SVM model for MNIST</span>
 <span class="n">tuned_parameters</span> <span class="o">=</span> <span class="p">[{</span><span class="s">&#39;kernel&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s">&#39;rbf&#39;</span><span class="p">],</span> <span class="s">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">],</span> <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]},</span>
                     <span class="p">{</span><span class="s">&#39;kernel&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s">&#39;poly&#39;</span><span class="p">],</span> <span class="s">&#39;degree&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s">&#39;C&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}]</span> 
 <span class="c">#Create a SVC SVM classifier object and tune it using GridSearchCV  function.</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">svm</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#replace this line with gridsearchcv</span>
 <span class="c">#print the details of the best model and its accuracy</span>
 </pre></div>
@@ -2879,10 +2989,12 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Tuning Random Forest for MNIST</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t10b</span>
+<span class="c">#Tuning Random Forest for MNIST</span>
 <span class="n">tuned_parameters</span> <span class="o">=</span> <span class="p">[{</span><span class="s">&#39;max_features&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s">&#39;sqrt&#39;</span><span class="p">,</span> <span class="s">&#39;log2&#39;</span><span class="p">],</span> <span class="s">&#39;n_estimators&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1500</span><span class="p">]}]</span> 
 <span class="c">#replace this line with gridsearchcv. Remember to pass </span>
 <span class="c"># the following parameters to constructor or RandomForestClassifier min_samples_split=1, compute_importances=False, n_jobs=-1</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">rf</span> <span class="o">=</span> <span class="bp">None</span> 
 
 <span class="c">#print the details of the best model and its accuracy</span>
@@ -2900,10 +3012,12 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Parallelization</span>
+<div class="highlight"><pre><span class="c">#(Harder) task t10c</span>
+<span class="c">#Parallelization</span>
 <span class="c">#Now re-run the tuning of SVC SVM model. But parallelize it via n_jobs option.</span>
 <span class="n">tuned_parameters</span> <span class="o">=</span> <span class="p">[{</span><span class="s">&#39;kernel&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s">&#39;rbf&#39;</span><span class="p">],</span> <span class="s">&#39;gamma&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="mf">1e-3</span><span class="p">],</span> <span class="s">&#39;C&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">]},</span>
                     <span class="p">{</span><span class="s">&#39;kernel&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="s">&#39;poly&#39;</span><span class="p">],</span> <span class="s">&#39;degree&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span> <span class="s">&#39;C&#39;</span> <span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">]}]</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">svm_parallel</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#replace this line with gridsearchcv</span>
 <span class="c">#print the details of the best model and its accuracy</span>
 </pre></div>
@@ -2980,10 +3094,11 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#Create a 13 scatter plot such that variables (CRIM to LSTAT) are in X axis and MEDV in y-axis.</span>
+<div class="highlight"><pre><span class="c">#task t11a</span>
+<span class="c">#Create 13 scatter plots such that variables (CRIM to LSTAT) are in X axis and MEDV in y-axis.</span>
 <span class="c"># Organize the images such that the images are in 3 rows of 4 images each and 1 in last row</span>
 
-<span class="c">#your code here</span>
+<span class="c">#Write code here</span>
 </pre></div>
 
 </div>
@@ -3028,8 +3143,10 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#create a regressor object based on LinearRegression</span>
+<div class="highlight"><pre><span class="c">#task t11b</span>
+<span class="c">#create a regressor object based on LinearRegression</span>
 <span class="c"># See http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">clf_ols</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change this line</span>
 <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">clf_ols</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span> 
 <span class="n">clf_ols_predicted</span> <span class="o">=</span> <span class="n">clf_ols</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>   
@@ -3048,21 +3165,27 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#See http://scikit-learn.org/stable/auto_examples/svm/plot_svm_regression.html</span>
+<div class="highlight"><pre><span class="c">#task t11c</span>
+<span class="c">#See http://scikit-learn.org/stable/auto_examples/svm/plot_svm_regression.html</span>
 <span class="c">#Create a regression based on Support Vector Regressor. Set the kernel to linear</span>
-<span class="n">clf_svr</span><span class="o">=</span> <span class="bp">None</span> <span class="c">#change here  </span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">clf_svr</span><span class="o">=</span> <span class="bp">None</span>  
 <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">clf_svr</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span> 
 <span class="n">clf_svr_predicted</span> <span class="o">=</span> <span class="n">clf_svr</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span> 
 <span class="n">plot_regression_fit</span><span class="p">(</span><span class="n">scalery</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="n">scalery</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">clf_svr_predicted</span><span class="p">))</span>   
 
+<span class="c">#task t11d</span>
 <span class="c">#Create a regression based on Support Vector Regressor. Set the kernel to polynomial</span>
-<span class="n">clf_svr_poly</span><span class="o">=</span> <span class="bp">None</span> <span class="c">#change here     </span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">clf_svr_poly</span><span class="o">=</span> <span class="bp">None</span>     
 <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">clf_svr_poly</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span> 
 <span class="n">clf_svr_poly_predicted</span> <span class="o">=</span> <span class="n">clf_svr_poly</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>      
 <span class="n">plot_regression_fit</span><span class="p">(</span><span class="n">scalery</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="n">scalery</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">clf_svr_poly_predicted</span><span class="p">))</span> 
 
+<span class="c">#task t11e</span>
 <span class="c">#Create a regression based on Support Vector Regressor. Set the kernel to rbf</span>
-<span class="n">clf_svr_rbf</span><span class="o">=</span> <span class="bp">None</span> <span class="c">#change here</span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">clf_svr_rbf</span><span class="o">=</span> <span class="bp">None</span> 
 <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">clf_svr_rbf</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
 <span class="n">clf_svr_rbf_predicted</span> <span class="o">=</span> <span class="n">clf_svr_rbf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>    
 <span class="n">plot_regression_fit</span><span class="p">(</span><span class="n">scalery</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="n">scalery</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">clf_svr_rbf_predicted</span><span class="p">))</span>
@@ -3080,9 +3203,11 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#See http://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html</span>
+<div class="highlight"><pre><span class="c">#task t11f</span>
+<span class="c">#See http://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html</span>
 <span class="c">#Create regression tree</span>
-<span class="n">clf_cart</span> <span class="o">=</span> <span class="bp">None</span> <span class="c">#change here  </span>
+<span class="c">#Change the following line as appropriate</span>
+<span class="n">clf_cart</span> <span class="o">=</span> <span class="bp">None</span>   
 <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">clf_cart</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span> 
 <span class="n">clf_cart_predicted</span> <span class="o">=</span> <span class="n">clf_cart</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>  
 <span class="n">plot_regression_fit</span><span class="p">(</span><span class="n">scalery</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="n">scalery</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">clf_cart_predicted</span><span class="p">))</span>  
@@ -3100,8 +3225,10 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
     <div class="input_area">
-<div class="highlight"><pre><span class="c">#See http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor</span>
+<div class="highlight"><pre><span class="c">#task t11g</span>
+<span class="c">#See http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html#sklearn.ensemble.RandomForestRegressor</span>
 <span class="c">#Create a random forest regressor with 10 estimators and random state as 1234</span>
+<span class="c">#Change the following line as appropriate</span>
 <span class="n">clf_rf</span><span class="o">=</span> <span class="bp">None</span>
 <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">clf_rf</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>  
 <span class="c">#The following line prints the most important features</span>
