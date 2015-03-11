@@ -1681,11 +1681,17 @@ div#notebook {
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="programming-assignment-2-classification-of-mnist-handwritten-digits-and-regression-of-house-prices-through-boston-dataset">Programming Assignment 2: Classification of MNIST Handwritten Digits and Regression of House Prices through Boston Dataset</h1>
-<h3 id="team-details">Team Details:</h3>
+<h3 id="team-details-">Team Details:</h3>
 <p>When submitting, fill your team details in this cell. Note that this is a markdown cell.</p>
-<p><strong>Student 1 Full Name:</strong> <strong>Student 1 Full ID:</strong> <strong>Student 1 Full Email Address:</strong></p>
-<p><strong>Student 2 Full Name:</strong> <strong>Student 2 Full ID:</strong> <strong>Student 2 Full Email Address:</strong></p>
-<p><strong>Student 3 Full Name:</strong> <strong>Student 3 Full ID:</strong> <strong>Student 3 Full Email Address:</strong></p>
+<p><strong>Student 1 Full Name:</strong>
+<strong>Student 1 Full ID:</strong>
+<strong>Student 1 Full Email Address:</strong></p>
+<p><strong>Student 2 Full Name:</strong>
+<strong>Student 2 Full ID:</strong>
+<strong>Student 2 Full Email Address:</strong></p>
+<p><strong>Student 3 Full Name:</strong>
+<strong>Student 3 Full ID:</strong>
+<strong>Student 3 Full Email Address:</strong></p>
 </div>
 </div>
 </div>
@@ -1696,16 +1702,16 @@ div#notebook {
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="assignment-details">Assignment Details</h2>
 <p>At a high level, you will be building and evaluating different classifiers for recognizing handwritten digits of MNIST dataset and also build an evaluate various regression models for predicting house prices in Boston. At a more granular level, you will be doing the following:</p>
-<h3 id="binary-classification-of-mnist-dataset">1. Binary Classification of MNIST Dataset</h3>
-<p>In the first set of tasks, you will evaluate a number of popular classifiers for the task of recognizing handwritten digits from MNIST dataset. Specifically, we will focus on distinguishing between 7 and 9 which are known to be a hard pair. We will not use any sophisticated ideas from Computer Vision/Image Processing and use classifiers directly over the data. The idea is to show that lot of times, you can simply run a set of classifiers and still get great results. While I will be giving some basic classifier code, you will have some opportunity to improve them by tuning the parameters.</p>
-<h3 id="multi-class-classification-of-mnist-dataset">2. Multi-Class Classification of MNIST Dataset</h3>
+<h3 id="1-binary-classification-of-mnist-dataset">1. Binary Classification of MNIST Dataset</h3>
+<p>In the first set of tasks, you will evaluate a number of popular classifiers for the task of recognizing handwritten digits from MNIST dataset. Specifically, we will focus on distinguishing between 7 and 9 which are known to be a hard pair. We will not use any sophisticated ideas from Computer Vision/Image Processing and use classifiers directly over the data. The idea is to show that lot of times, you can simply run a set of classifiers and still get great results. While I will be giving some basic classifier code, you will have some opportunity to improve them by tuning the parameters. </p>
+<h3 id="2-multi-class-classification-of-mnist-dataset">2. Multi-Class Classification of MNIST Dataset</h3>
 <p>In the second set of tasks, we will do multi-class classification where the idea is to classify the image to one of the ten digits (0-9). We will start with some basic classifiers that are intrinsically multi-class. Then we will learn about how to convert binary classifiers to multi-class classifiers and how scikit-learn makes it very easy.</p>
-<h3 id="exploration-of-different-evaluation-metrics">3. Exploration of Different Evaluation Metrics</h3>
-<p>In the first two set of tasks, we will narrowly focus on accuracy - what fraction of our predictions - were correct. However, there are a number of popular evaluation metrics. You will learn how (and when) to use these evaluation metrics.</p>
-<h3 id="parameter-tuning-through-grid-searchcross-validation-and-parallelization">4. Parameter Tuning through Grid Search/Cross Validation and Parallelization</h3>
-<p>This is an advanced topic where you will learn how to tune your classifier and find optimal parameters. We will explore two powerful techniques of grid search and parameter search. This is a very compute intensive task - so you will also explore how to leverage parallelization capabilities of IPython kernel to get results sooner.</p>
-<h3 id="evaluation-of-various-regression-models-for-boston-houses-dataset">5. Evaluation of Various Regression Models for Boston Houses Dataset</h3>
-<p>In the final set of tasks, we will use regression to predict Boston house prices. We will explore both Ordinary Least Squares and also explore other regression variant of popular classifiers such as decision trees and SVM.</p>
+<h3 id="3-exploration-of-different-evaluation-metrics">3. Exploration of Different Evaluation Metrics</h3>
+<p>In the first two set of tasks, we will narrowly focus on accuracy - what fraction of our predictions - were correct. However, there are a number of popular evaluation metrics. You will learn how (and when) to use these evaluation metrics. </p>
+<h3 id="4-parameter-tuning-through-grid-search-cross-validation-and-parallelization">4. Parameter Tuning through Grid Search/Cross Validation and Parallelization</h3>
+<p>This is an advanced topic where you will learn how to tune your classifier and find optimal parameters. We will explore two powerful techniques of grid search and parameter search. This is a very compute intensive task - so you will also explore how to leverage parallelization capabilities of IPython kernel to get results sooner. </p>
+<h3 id="5-evaluation-of-various-regression-models-for-boston-houses-dataset">5. Evaluation of Various Regression Models for Boston Houses Dataset</h3>
+<p>In the final set of tasks, we will use regression to predict Boston house prices. We will explore both Ordinary Least Squares and also explore other regression variant of popular classifiers such as decision trees and SVM. </p>
 </div>
 </div>
 </div>
@@ -1868,8 +1874,9 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="binary-classification-in-scikit-learn">Binary Classification in scikit-learn</h2>
-<p>All classifiers in scikit-learn follow a common pattern that makes life much easier. Follow these steps for all the tasks below.</p>
-<ol style="list-style-type: decimal">
+<p>All classifiers in scikit-learn follow a common pattern that makes life much easier. 
+Follow these steps for all the tasks below.</p>
+<ol>
 <li>Instantiate the classifier with appropriate parameters</li>
 <li>Train/fit the classifier with training data and correct labels</li>
 <li>Test the classifier with unseen data</li>
@@ -1884,7 +1891,8 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="k-nearest-neighbor">K-Nearest Neighbor</h2>
-<p>We will start with one of the simplest classifiers. In the cell below, I have given the code for k-NN with k=1. This should give an idea about how to create, train and evaluate a classifier.</p>
+<p>We will start with one of the simplest classifiers. In the cell below, I have given the code for k-NN with k=1.
+This should give an idea about how to create, train and evaluate a classifier.</p>
 </div>
 </div>
 </div>
@@ -2096,7 +2104,9 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="decision-trees">Decision Trees</h2>
-<p>In the next set of tasks, you will use Decision trees (see url http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier ) for classification.</p>
+<p>In the next set of tasks, you will use Decision trees (see url
+<a href="http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier">http://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html#sklearn.tree.DecisionTreeClassifier</a>
+) for classification. </p>
 </div>
 </div>
 </div>
@@ -2239,7 +2249,8 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="naive-bayes">Naive Bayes</h2>
-<p>In this task, you will create a set of Naive Bayes classifiers and evaluate them. You might want to use the following url http://scikit-learn.org/stable/modules/naive_bayes.html</p>
+<p>In this task, you will create a set of Naive Bayes classifiers and evaluate them. You might want to use the following url
+<a href="http://scikit-learn.org/stable/modules/naive_bayes.html">http://scikit-learn.org/stable/modules/naive_bayes.html</a> </p>
 </div>
 </div>
 </div>
@@ -2318,7 +2329,8 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="svm">SVM</h2>
-<p>Let us test SVM on this dataset. You might want to read the http://scikit-learn.org/stable/modules/svm.html for help. We will focus on SVC and LinearSVC.</p>
+<p>Let us test SVM on this dataset. You might want to read the <a href="http://scikit-learn.org/stable/modules/svm.html">http://scikit-learn.org/stable/modules/svm.html</a> for help.
+We will focus on SVC and LinearSVC.</p>
 </div>
 </div>
 </div>
@@ -2397,7 +2409,8 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="logistic-regression">Logistic Regression</h2>
-<p>Logistic regression is a simple classifier that converts a regression model into a classification one. You can read the details at http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html</p>
+<p>Logistic regression is a simple classifier that converts a regression model into a classification one.
+You can read the details at <a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html">http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html</a> </p>
 </div>
 </div>
 </div>
@@ -2451,7 +2464,8 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="perceptron">Perceptron</h2>
-<p>Perceptron is a simple model that can be used for linearly separable data. See details at url http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html .</p>
+<p>Perceptron is a simple model that can be used for linearly separable data. See details at url
+<a href="http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html">http://scikit-learn.org/stable/modules/generated/sklearn.linear_model.Perceptron.html</a> .</p>
 </div>
 </div>
 </div>
@@ -2484,7 +2498,9 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="random-forests">Random Forests</h2>
-<p>Random Forests is a very popular ensemble method. See url http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html for details</p>
+<p>Random Forests is a very popular ensemble method. See url 
+<a href="http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html">http://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html</a>
+for details</p>
 </div>
 </div>
 </div>
@@ -2499,11 +2515,11 @@ In&nbsp;[]:
 <span class="c">#Create a random forest classifier with Default parameters</span>
 <span class="c">#Change the following line as appropriate</span>
 <span class="n">rf_model_default</span> <span class="o">=</span> <span class="bp">None</span>                                                                   
-<span class="n">rf_model_default</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">all_train_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>                                                                    
+<span class="n">rf_model_default</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>                                                                    
 <span class="k">print</span><span class="p">(</span><span class="n">rf_model_default</span><span class="p">)</span>            
 <span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_rf_default</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_rf_default</span><span class="p">)</span> 
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_rf_default</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -2522,11 +2538,11 @@ In&nbsp;[]:
 <span class="c">#Create a random forest classifier that can beat the above default model.</span>
 <span class="c">#Change the following line as appropriate</span>
 <span class="n">rf_model_default_student</span> <span class="o">=</span> <span class="bp">None</span>                                                                   
-<span class="n">rf_model_default_student</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">all_train_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>                                                                    
+<span class="n">rf_model_default_student</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">binary_class_training_data</span><span class="p">,</span> <span class="n">binary_class_training_labels</span><span class="p">)</span>                                                                    
 <span class="k">print</span><span class="p">(</span><span class="n">rf_model_default_student</span><span class="p">)</span>        
 <span class="c">#Change the following line as appropriate</span>
 <span class="n">predictions_rf_default_student</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_rf_default_student</span><span class="p">)</span> 
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">binary_class_testing_labels</span><span class="p">,</span><span class="n">predictions_rf_default_student</span><span class="p">)</span> 
 </pre></div>
 
 </div>
@@ -2540,11 +2556,17 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="part-2-multi-class-classification">Part 2: Multi Class Classification</h1>
-<p>So far, we have been focussing on binary classification problems. Now let us consider the corresponding multi class classification problem where given an image, we have to predict whether it is any of the digits 0 to 9.</p>
-<p>We will evaluate 4 classifiers - KNN, Decision Trees, Random Forest and SVM. We can see that for the first three, no changes are needed to make them multi class. SVM however, is by default, a binary classifier. We can use two options : OneVsRestClassifier or OneVsOneClassifier to make it into Multi Class classifier. See http://scikit-learn.org/stable/modules/multiclass.html for further details.</p>
+<p>So far, we have been focussing on binary classification problems.
+Now let us consider the corresponding multi class classification problem 
+where given an image, we have to predict whether it is any of the digits 0 to 9. </p>
+<p>We will evaluate 4 classifiers - KNN, Decision Trees, Random Forest and SVM.
+We can see that for the first three, no changes are needed to make them multi class. 
+SVM however, is by default, a  binary classifier.
+We can use two options : OneVsRestClassifier or OneVsOneClassifier to make it into Multi Class classifier. 
+See <a href="http://scikit-learn.org/stable/modules/multiclass.html">http://scikit-learn.org/stable/modules/multiclass.html</a> for further details.</p>
 <p>Make sure that you remember the variable names and their meaning:</p>
-<ol style="list-style-type: decimal">
-<li>all_train_data, all_test_data: un normalized images of all digits</li>
+<ol>
+<li>all_train_data, all_test_data: un normalized images of all digits </li>
 <li>all_train_labels, all_test_labels: labels for all digits</li>
 <li>scaled_training_data, scaled_testing_data: Normalized version of all_train_data, all_test_data for all digits</li>
 </ol>
@@ -2752,12 +2774,12 @@ In&nbsp;[]:
 <div class="highlight"><pre><span class="c">#(Harder) task t8i</span>
 <span class="c">#Tune the model so that it beats the classifier above. Set random state to 1234</span>
 <span class="c">#Change the following line as appropriate</span>
-<span class="n">mc_ovo_linear_svc_svm_model</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">mc_ovo_linear_svc_svm_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_training_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>
-<span class="k">print</span><span class="p">(</span><span class="n">mc_ovo_linear_svc_svm_model</span><span class="p">)</span>   
+<span class="n">mc_ovo_linear_svc_svm_model_student</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">mc_ovo_linear_svc_svm_model_student</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">scaled_training_data</span><span class="p">,</span> <span class="n">all_train_labels</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">mc_ovo_linear_svc_svm_model_student</span><span class="p">)</span>   
 <span class="c">#Change the following line as appropriate</span>
-<span class="n">predictions_mc_ovo_linear_svm_svc</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_mc_ovo_linear_svm_svc</span><span class="p">)</span>   
+<span class="n">predictions_mc_ovo_linear_svm_svc_student</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="k">print</span> <span class="n">metrics</span><span class="o">.</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">all_test_labels</span><span class="p">,</span><span class="n">predictions_mc_ovo_linear_svm_svc_student</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -2771,7 +2793,8 @@ In&nbsp;[]:
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="part-3-exploration-of-different-evaluation-metrics-for-multi-class-classification">Part 3: Exploration of Different Evaluation Metrics for Multi Class Classification</h1>
-<p>Let us evaluate different metrics for the multi class classification models that we created so far. You may want to check the url http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics for additional details.</p>
+<p>Let us evaluate different metrics for the multi class classification models that we created so far. 
+You may want to check the url <a href="http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics">http://scikit-learn.org/stable/modules/classes.html#module-sklearn.metrics</a> for additional details.</p>
 </div>
 </div>
 </div>
@@ -2790,11 +2813,22 @@ In&nbsp;[]:
 <span class="c"># Remember to assign the MODEL variable</span>
 
 <span class="c">#Change the following lines as appropriate</span>
-<span class="n">best_knn_model</span> <span class="o">=</span> <span class="bp">None</span> 
-<span class="n">best_dtree_model</span> <span class="o">=</span> <span class="bp">None</span> 
-<span class="n">best_rf_model</span> <span class="o">=</span> <span class="bp">None</span>    
-<span class="n">best_svm_ovr_model</span> <span class="o">=</span> <span class="bp">None</span> 
-<span class="n">best_svm_ovo_model</span> <span class="o">=</span> <span class="bp">None</span> 
+<span class="n">best_knn_model_mc</span> <span class="o">=</span> <span class="bp">None</span> 
+<span class="n">best_dtree_model_mc</span> <span class="o">=</span> <span class="bp">None</span> 
+<span class="n">best_rf_model_mc</span> <span class="o">=</span> <span class="bp">None</span>    
+<span class="n">best_svm_ovr_model_mc</span> <span class="o">=</span> <span class="bp">None</span> 
+<span class="n">best_svm_ovo_model_mc</span> <span class="o">=</span> <span class="bp">None</span> 
+
+
+<span class="c">#Assign the best BINARY classification models that you found above</span>
+<span class="n">best_knn_model_bc</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">best_dtree_model_bc</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">best_rf_model_bc</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">best_svm_model_bc</span> <span class="o">=</span> <span class="bp">None</span>
+
+
+<span class="c">######Note - for tasks 9c and 9d you will use multi class models (ie. those variables ending in _mc)</span>
+<span class="c">############# For the remaining you will use binary class models (ie. those variables ending in _bc)</span>
 </pre></div>
 
 </div>
@@ -2812,11 +2846,18 @@ In&nbsp;[]:
 <div class="highlight"><pre><span class="c">#task t9b</span>
 <span class="c">#Create predictions of these 5 models on test dataset</span>
 <span class="c">#Change the following lines as appropriate</span>
-<span class="n">predictions_best_knn_model</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">predictions_best_dtree_model</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">predictions_best_rf_model</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">predictions_best_svm_ovr_model</span> <span class="o">=</span> <span class="bp">None</span>
-<span class="n">predictions_best_svm_ovo_model</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">predictions_best_knn_model_mc</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">predictions_best_dtree_model_mc</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">predictions_best_rf_model_mc</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">predictions_best_svm_ovr_model_mc</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">predictions_best_svm_ovo_model_mc</span> <span class="o">=</span> <span class="bp">None</span>
+
+<span class="c">#Create predictions of these 4 models on test dataset</span>
+<span class="c">#Change the following lines as appropriate</span>
+<span class="n">predictions_best_knn_model_bc</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">predictions_best_dtree_model_bc</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">predictions_best_rf_model_bc</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">predictions_best_svm_model_bc</span> <span class="o">=</span> <span class="bp">None</span>
 </pre></div>
 
 </div>
@@ -2936,10 +2977,22 @@ In&nbsp;[]:
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="part-4-parameter-tuning-through-grid-searchcross-validation-and-parallelization">Part 4: Parameter Tuning through Grid Search/Cross Validation and Parallelization</h1>
-<p>So far in this assignment, you manually tweaked the model till it became better. For complex models, this is often cumbersome. A common trick people use is called Grid Search where you exhaustively test various parameter combinations and pick the best set of parameter values. This is a VERY computationally intensive process and hence it will require some parallelization.</p>
-<p>In this assignment, you will learn how to tune two models (a RandmForest and SVC SVM) for MNIST dataset and then parallelize it so as to get results faster. You might want to take a look at the url http://scikit-learn.org/stable/modules/grid_search.html for additional details.</p>
-<p>One thing you might want to note is that the GridSearchCV uses cross validation for comparing models. So you have to send the ENTIRE MNIST dataset - i.e. mnist.data and mnist.target . The following cell creates two variables all_scaled_data and all_scaled_target that you can pass to GridSearchCV. In order to get the results in reasonable time, set the <strong>cv</strong> parameter of GridSearchCV to 3. Also remember to set the <strong>verbose</strong> parameter to 2 to get some details about what happens internally.</p>
+<h1 id="part-4-parameter-tuning-through-grid-search-cross-validation-and-parallelization">Part 4: Parameter Tuning through Grid Search/Cross Validation and Parallelization</h1>
+<p>So far in this assignment, you manually tweaked the model till it became better.
+For complex models, this is often cumbersome.
+A common trick people use is called Grid Search where you exhaustively test various parameter combinations
+and pick the best set of parameter values.
+This is a VERY computationally intensive process and hence it will require some parallelization.</p>
+<p>In this assignment, you will learn how to tune two models (a RandmForest and SVC SVM) for MNIST dataset
+and then parallelize it so as to get results faster.
+You might want to take a look at the url
+<a href="http://scikit-learn.org/stable/modules/grid_search.html">http://scikit-learn.org/stable/modules/grid_search.html</a>
+for additional details.</p>
+<p>One thing you might want to note is that the GridSearchCV uses cross validation for comparing models.
+So you have to send the ENTIRE MNIST dataset - i.e. mnist.data and mnist.target . 
+The following cell creates two variables all_scaled_data and all_scaled_target that you can pass to GridSearchCV.
+In order to get the results in reasonable time, set the <strong>cv</strong> parameter of GridSearchCV to 3.
+Also remember to set the <strong>verbose</strong> parameter to 2 to get some details about what happens internally.</p>
 </div>
 </div>
 </div>
