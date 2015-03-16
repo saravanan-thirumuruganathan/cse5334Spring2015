@@ -2011,7 +2011,7 @@ In&nbsp;[]:
 
 <span class="c">#Let us now see the first five images that were predicted incorrectly see what the issue is                                  </span>
 <span class="n">errors_knn_model_k5</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">binary_class_testing_data</span><span class="p">))</span> <span class="k">if</span> <span class="n">predictions_knn_model_k5</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">!=</span> <span class="n">binary_class_testing_labels</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
-<span class="n">show_erroring_images_for_model</span><span class="p">(</span><span class="n">errors_knn_model_k5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">knn_model_k3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>                                                      
+<span class="n">show_erroring_images_for_model</span><span class="p">(</span><span class="n">errors_knn_model_k5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">knn_model_k5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>                                                      
 </pre></div>
 
 </div>
@@ -2965,6 +2965,8 @@ In&nbsp;[]:
 <div class="highlight"><pre><span class="c">#(Harder) task t9h</span>
 <span class="c">#Print the precision recall curve for each of the models above</span>
 <span class="c">#  Write code here</span>
+
+<span class="k">print</span> <span class="n">the</span> <span class="n">curve</span> <span class="n">based</span> <span class="n">on</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">scikit</span><span class="o">-</span><span class="n">learn</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span><span class="n">auto_examples</span><span class="o">/</span><span class="n">plot_precision_recall</span><span class="o">.</span><span class="n">html</span>
 </pre></div>
 
 </div>
@@ -3004,8 +3006,8 @@ In&nbsp;[]:
 <div class="inner_cell">
     <div class="input_area">
 <div class="highlight"><pre><span class="c">###Do not make any change below</span>
-<span class="n">all_scaled_data</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">data</span> <span class="o">/</span> <span class="mf">255.0</span>
-<span class="n">all_scaled_target</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">target</span>
+<span class="n">all_scaled_data</span> <span class="o">=</span> <span class="n">binary_class_data</span> <span class="o">/</span> <span class="mf">255.0</span>
+<span class="n">all_scaled_target</span> <span class="o">=</span> <span class="n">binary_class_labels</span>
 </pre></div>
 
 </div>
@@ -3285,7 +3287,7 @@ In&nbsp;[]:
 <span class="n">clf_rf</span><span class="o">=</span> <span class="bp">None</span>
 <span class="n">train_and_evaluate</span><span class="p">(</span><span class="n">clf_rf</span><span class="p">,</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>  
 <span class="c">#The following line prints the most important features</span>
-<span class="k">print</span> <span class="n">sort</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">clf_rf</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span><span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
+<span class="k">print</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">clf_rf</span><span class="o">.</span><span class="n">feature_importances_</span><span class="p">,</span><span class="n">boston</span><span class="o">.</span><span class="n">feature_names</span><span class="p">),</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>  
 <span class="n">clf_rf_predicted</span> <span class="o">=</span> <span class="n">clf_rf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>      
 <span class="n">plot_regression_fit</span><span class="p">(</span><span class="n">scalery</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">y_test</span><span class="p">),</span> <span class="n">scalery</span><span class="o">.</span><span class="n">inverse_transform</span><span class="p">(</span><span class="n">clf_rf_predicted</span><span class="p">))</span> 
 </pre></div>

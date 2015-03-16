@@ -127,7 +127,11 @@ Once a student runs out of late days, any late submissions are penalized at a ra
 
                             <br/>
 
-                            <b>Assignment Survey: </b>  [TBD] <br/>
+                            <b>Assignment Survey: </b>  
+                                <a href="https://docs.google.com/forms/d/127vVj_R8oskvwwc0m6B61zAapGNkvaSVacAkKPmYIfs/viewform?usp=send_form">[Link]</a>
+                                 <br/>
+                                Note that this is an anonymous form. You will be required to login to ensure that each student submits only once.
+                                But the responses are anonymous.
 
                         </p>
 
@@ -189,6 +193,11 @@ In the final set of tasks, we will use regression to predict Boston house prices
                                     <a href="http://saravanan-thirumuruganathan.github.io/cse5334Spring2015/assignments/PA2/PA2_MNIST_Classification_Boston_Regression.ipynb">[IPynb]</a>
                                     <a href="http://saravanan-thirumuruganathan.github.io/cse5334Spring2015/assignments/PA2/PA2_MNIST_Classification_Boston_Regression.html">[HTML]</a>
                                     <br/>
+                            <b>Assignment Survey: </b>  
+                                <a href="https://docs.google.com/forms/d/127vVj_R8oskvwwc0m6B61zAapGNkvaSVacAkKPmYIfs/viewform?usp=send_form">[Link]</a>
+                                 <br/>
+                                Note that this is an anonymous form. You will be required to login to ensure that each student submits only once.
+                                But the responses are anonymous.
                         </p>
 
                     </div>
@@ -199,12 +208,33 @@ In the final set of tasks, we will use regression to predict Boston house prices
 
                 <div class="panel">
                     <div class="panel-header bg-lightBlue fg-white">
-                        PA III: Clustering, Dimensionality Reduction and Basics of Deep Learning
+                        PA III: Clustering and Dimensionality Reduction
                     </div>
                     <div class="panel-content">
+
+
+<p>In this assignment, you will explore the fascinating concepts of clustering and dimensionality reduction. Since the aim is to get some insights into how and when to use clustering, we will mostly stick to small synthetic datasets. However, for fun, at the end of this assignment, you will write some code to collect your friends information from Facebook and use it for clustering. I got some very interesting results when I run them against my friends&#39; accounts. At a more granular level, you will be doing the following tasks:</p>
+<strong>1. Evaluation of k-Means over Diverse Datasets</strong>
+<p>In the first task, you will explore how k-Means perform on datasets with diverse structure. You will also explore different ways of customizing $k$-Means and learn about how to find good initialization and good value of k. </p>
+<strong>2. Evaluation of Hierarchical Clustering over Diverse Datasets</strong>
+<p>In this task, you will explore hierarchical clustering over different datasets. You will also evaluate different ways to merge clusters and good way to find the cut-off point for breaking the dendrogram.</p>
+<strong>3. Comparison of Clustering Evaluation Metrics</strong>
+<p>In the class, we mostly focused on SSE measure for evaluating how good a cluster is. There are many other statistical measures, and you will test them in this task.</p>
+<strong>4. Clustering your Facebook Friends</strong>
+<p>In this task, you will use the scraping knowledge you gained from Programming Assignment 1 to scrape details about your Facebook friends. You will then convert them to an appropriate vector format before clustering them.</p>
+<strong>5. Dimensionality Reduction</strong>
+<p>Dimensionality reduction is a key data pre-processing technique. You will perform PCA, a popular dimensionality reduction technique, over few images to get an intuition. Then you will apply it to MNIST data from Programming Assignment 2 to see how it performs.</p>
+
+
                         <p>
-                            Out : 15-Mar, Due: 5-Apr
+                            <b>Deadline: </b>  5-Apr, 2015 <br/>
+                            <b>Notebook: </b> 
+                                    <a href="http://saravanan-thirumuruganathan.github.io/cse5334Spring2015/assignments/PA3/PA3_Clustering_DimensionalityReduction.ipynb">[IPynb]</a>
+                                    <a href="http://saravanan-thirumuruganathan.github.io/cse5334Spring2015/assignments/PA2/PA3_Clustering_DimensionalityReduction.html">[HTML]</a>
+                                    <br/>
                         </p>
+
+
                     </div>
                 </div>
 
@@ -248,7 +278,49 @@ In the final set of tasks, we will use regression to predict Boston house prices
                     </div>
                     <div class="panel-content">
                         <p>
-                            Out : 16-Mar, Due: 10-May
+                            <b>Deadline: </b>  10-May, 2015 <br/>
+                        </p>
+
+                        <p>
+The objective of this project is to show your mastery of data mining by performing some non-trivial, challenging and fun project
+that will use one or more major concepts discussed in the class.
+I will create a Piazza post with more suggestions and additional details.
+At a high level, your proposed project has to fall into one of the three categories:
+<ol>
+    <li> Do some analysis on a known dataset (benchmark datasets, KDD Cup, Kaggle, data.gov or from state government of Texas etc). 
+            
+    <li> Learn and apply some interesting concept not discussed in class or explore in-depth some topic discussed in the class. 
+            Examples for the former might include Topic Models, Social Network Analysis, Anomaly Detection, Mining in Computational Finance,
+                Mining in Election polls, Bayesian Statistics, data analytics in NoSQL databases etc.
+            Examples for the latter could include Deep Learning/Neural Networks, Sampling, Computational Advertising, SVM, Feature Selection, 
+                Recommender Systems, Ensembles, challenges in High dimensional data (images, text, biological etc), 
+                Model testing on Web etc.
+    <li> Do a non-trivial mining project using some popular open source tool, package or resource.
+            Examples might include Social Media APIs (Twitter, Facebook, Yelp, NYTimes),
+                 Visualization Software (D3, Tableau software), 
+                 Large Scale processing (MapReduce, Apache Spark, AWS/AzureML/Google Predict/Mahout),
+                 Graph processing (GraphLab, Giraph, Pregel),
+                 Deep Learning (Torch, Caffe), 
+                 Online learning (Vowpal Wabbit).
+
+</ol>
+        </p>
+        <p>
+If you cannot choose a project, I would suggest the <strong>Click Prediction</strong> project.
+In this project, you will predict the click through rate of ads given a query, the ads (link) information, and user information.
+This was originally proposed in 2012 KDD Cup Track 2.
+Additional details of the data and task can be found <a href="https://www.kddcup2012.org/c/kddcup2012-track2">here</a>.
+The original dataset is divided into 3 parts: training, testing, and maps from feature id to features. 
+The training set has 150M instances, and the testing data has 20M instances. 
+Drs. Carlos Guestrin and Emily Fox from University of Washington have subsampled and simplified this dataset by 
+joining the training and testing data with the feature maps. 
+After spending couple of hours, I noticed that (linear) models that we have covered in class work quite well!
+Doing this project has additional advantages too.
+While we covered the basics of advertising in the class, you will be starting as an advertiser and focus a lot on tools and techniques than domain knowledge.
+Also, this is a cool enough project to put in portfolio and getting some knowledge in this field wouldn't hurt.
+There are lot of discussion in the internet and there is an entire journal issue for papers that describe what the top-performing teams did.
+Data can be found <a href="http://courses.cs.washington.edu/courses/cse599c1/13wi/datasets/clickprediction_data.zip">here</a>.
+
                         </p>
                     </div>
                 </div>
