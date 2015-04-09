@@ -248,11 +248,53 @@ In the final set of tasks, we will use regression to predict Boston house prices
 
                 <div class="panel">
                     <div class="panel-header bg-lightBlue fg-white">
-                        Search Engines: Crawling, Answering Keyword Queries, Ranking and Advertisement
+                        Search Engines and Inbox Ranking
                     </div>
                     <div class="panel-content">
                         <p>
-                            Out : 05-Apr, Due: 26-Apr
+In this project, you will do two sub-projects that are loosely connected via text processing (and data  mining).
+In the first project, you will build a toy search engine and implement some important modules
+for crawling, text-processing, answering and ranking keyword queries via vector space model, zone scoring and pagerank.
+In the second project, you will learn more about ranking in the context of mail box.
+We will build a toy version of Google's priority inbox using some limited set of features.
+At a more granular level, you will be doing the following tasks:
+</p>
+
+<h4>Sub Project 1: Search Engine </h4> 
+<strong>1. Building a Crawler for UTA:</strong>
+<p>
+    In the first task, you will build a crawler for UTA using Scrapy module. 
+    I have given some starter code that you will have to flesh out.
+</p>
+<strong>2. Text Processing and Answering Queries using Vector Space Model and Zone Scoring:</strong>
+<p>
+    In the second task, you will process the web pages from UTA using NLTK.
+    You will implement the standard text processing techniques (such as stemming, lemmatization, normalization etc).
+    You will then implement two simple ranking algorithms: one using vector space model (tf-idf) and another using zone scoring.
+</p>
+<strong>3. PageRank Computation:</strong>
+<p>
+    In the third task, you will compute PageRank over the entire corpus.
+    Naively constructing an adjacency matrix might require gigabytes of RAM.
+    For eg, an adjacency matrix for 50000 nodes will require close to 20 GB.
+    We will instead explore the usage of sparse matrices that require substantially less memory.
+    Specifically, you will investigate how to use two popular techniques - 
+        dictionary of keys and compressed sparse row.
+    You will then investigate how this approach provides superior memory and time reductions.
+</p>
+
+&nbsp; <br/>
+<h4>Sub Project 2: Inbox Ranking</h4>
+TBD.
+
+                        <p>
+                            <b>Deadline:</b> 26-Apr <br/>
+                            <b>Starter Code: </b> 
+                                    <a href="http://saravanan-thirumuruganathan.github.io/cse5334Spring2015/assignments/PA4/PA4.zip">[ZIP]</a>
+                                    <br/>
+                        </p>
+                        <p>
+                            This is a challenging assignment. So start early!!
                         </p>
                     </div>
                 </div>
