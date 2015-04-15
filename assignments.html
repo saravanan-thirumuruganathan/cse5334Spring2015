@@ -274,7 +274,7 @@ At a more granular level, you will be doing the following tasks:
 </p>
 <strong>3. PageRank Computation:</strong>
 <p>
-    In the third task, you will compute PageRank over the entire corpus.
+    In the third task, you will compute PageRank over the entire UTA corpus.
     Naively constructing an adjacency matrix might require gigabytes of RAM.
     For eg, an adjacency matrix for 50000 nodes will require close to 20 GB.
     We will instead explore the usage of sparse matrices that require substantially less memory.
@@ -285,11 +285,36 @@ At a more granular level, you will be doing the following tasks:
 
 &nbsp; <br/>
 <h4>Sub Project 2: Inbox Ranking</h4>
-TBD.
+<p>
+In this task, you will learn about how to do text mining. 
+Specifically, you will download and parse your GMail data.
+You will be doing two tasks:
+</p>
+
+<strong>4. Priority Categorization of Emails:</strong>
+<p>
+    We will now use GMail data to build a classifier to determine whether an email is important or not.
+    For this, we will use Google's Priority Inbox as the ground truth.
+    In other words, GMail internally tags the emails with a label called "Important" and we will consider them as important too.
+    Of course, the other option is manually tag each email as important or not which might be tedious.
+    You will download GMail data using Google's Takeout feature and evaluate different ways to construct 
+    features (such as Binary, Count and TF-IDF) and try different classifiers such as Naive Bayes and SVM.
+</p>
+<strong>5. Ranking Emails by Priority:</strong>
+<p>
+    Often, simply categorizing email as important or not is not sufficient.
+    In this task, you will build a ranking function that computes for each email a score based on how important it is.
+    By sorting the emails based on the score, you can identify the top-k emails.
+    At a high level, this is how many sites such as Facebook, LinkedIn etc operate.
+    We will use some simple features such as sender, subject, date, body and threads 
+    and design a function inspired by GMail's Priority Inbox ranking function 
+    (Read the first 2 pages of http://static.googleusercontent.com/media/research.google.com/en/us/pubs/archive/36955.pdf if you are interested in 
+    how GMail does it).
+</p>
 
                         <p>
                             <b>Deadline:</b> 26-Apr <br/>
-                            <b>Starter Code: </b> 
+                            <b>Starter Code for Search Engine: </b> 
                                     <a href="http://saravanan-thirumuruganathan.github.io/cse5334Spring2015/assignments/PA4/PA4.zip">[ZIP]</a>
                                     <br/>
                         </p>
