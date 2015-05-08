@@ -217,7 +217,7 @@ Student 3 Email Address:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">########### Do not change anything below</span>
@@ -243,7 +243,13 @@ Student 3 Email Address:</p>
 
 <span class="kn">from</span> <span class="nn">sklearn.metrics.pairwise</span> <span class="kn">import</span> <span class="n">euclidean_distances</span>
 
-<span class="kn">import</span> <span class="nn">pickle</span>
+<span class="k">try</span><span class="p">:</span>
+   <span class="kn">import</span> <span class="nn">cPickle</span> <span class="kn">as</span> <span class="nn">pickle</span>
+<span class="k">except</span><span class="p">:</span>
+   <span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">defaultdict</span><span class="p">,</span> <span class="n">Counter</span>
+<span class="kn">import</span> <span class="nn">operator</span>
 
 <span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">rcParams</span>
 <span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
@@ -281,7 +287,7 @@ Student 3 Email Address:</p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#####Do not change anything below</span>
@@ -309,7 +315,7 @@ Student 3 Email Address:</p>
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div style="max-height:1000px;max-width:1500px;overflow:auto;">
@@ -1099,8 +1105,6 @@ RK5CYII=
 <span class="c">#t1e_avg_ratings is a groupby object with average rating for each user</span>
 <span class="n">t1e_avg_ratings</span> <span class="o">=</span> <span class="bp">None</span>
 
-
-
 <span class="c">####The figure below shows that while the average rating of users vary</span>
 <span class="c"># What does this imply?</span>
 </pre></div>
@@ -1312,7 +1316,6 @@ QLYjxrH0cnsAAAAASUVORK5CYII=
 
 <span class="c">#t1e_avg_ratings is a groupby object with average rating for each user</span>
 <span class="n">t1f_avg_ratings</span> <span class="o">=</span> <span class="bp">None</span>
-
 
 
 <span class="c">####The figure below shows that while the average rating of movies vary</span>
@@ -1894,7 +1897,7 @@ RU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#Task t2a: </span>
@@ -1915,7 +1918,7 @@ RU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#Task t2b: Write a function that takes two inputs: </span>
@@ -1935,7 +1938,6 @@ RU5ErkJggg==
     <span class="c">#Return the unique set of ratings provided</span>
     <span class="n">movie_ratings</span> <span class="o">=</span> <span class="n">movie_ratings</span><span class="p">[</span><span class="n">movie_ratings</span><span class="p">[</span><span class="s">&#39;UserId&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">duplicated</span><span class="p">()</span><span class="o">==</span><span class="bp">False</span><span class="p">]</span>
     <span class="k">return</span> <span class="n">movie_ratings</span>
-    
 </pre></div>
 
 </div>
@@ -1945,7 +1947,304 @@ RU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+
+<span class="c">#Here are some sample test cases for evaluating t2b</span>
+<span class="k">print</span> <span class="s">&quot;get_movie_reviews(1, set([1]))&quot;</span>
+<span class="n">display</span><span class="p">(</span> <span class="n">get_movie_reviews</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">set</span><span class="p">([</span><span class="mi">1</span><span class="p">]))</span> <span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&quot;get_movie_reviews(1, set(range(1, 10)))&quot;</span>
+<span class="n">display</span><span class="p">(</span> <span class="n">get_movie_reviews</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span> <span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&quot;get_movie_reviews(100, set(range(1, 10)))&quot;</span>
+<span class="n">display</span><span class="p">(</span> <span class="n">get_movie_reviews</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)))</span> <span class="p">)</span>
+
+<span class="k">print</span> <span class="s">&quot;get_movie_reviews(784, set(range(1, 784)))&quot;</span>
+<span class="n">display</span><span class="p">(</span> <span class="n">get_movie_reviews</span><span class="p">(</span><span class="mi">784</span><span class="p">,</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">784</span><span class="p">)))</span> <span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>get_movie_reviews(1, set([1]))
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MovieId</th>
+      <th>Title</th>
+      <th>UserId</th>
+      <th>Rating</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Occupation</th>
+      <th>ZipCode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20103</th>
+      <td> 1</td>
+      <td> Toy Story (1995)</td>
+      <td> 1</td>
+      <td> 5</td>
+      <td> 24</td>
+      <td> M</td>
+      <td> technician</td>
+      <td> 85711</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>get_movie_reviews(1, set(range(1, 10)))
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MovieId</th>
+      <th>Title</th>
+      <th>UserId</th>
+      <th>Rating</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Occupation</th>
+      <th>ZipCode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20103</th>
+      <td> 1</td>
+      <td> Toy Story (1995)</td>
+      <td> 1</td>
+      <td> 5</td>
+      <td> 24</td>
+      <td> M</td>
+      <td> technician</td>
+      <td> 85711</td>
+    </tr>
+    <tr>
+      <th>15002</th>
+      <td> 1</td>
+      <td> Toy Story (1995)</td>
+      <td> 2</td>
+      <td> 4</td>
+      <td> 53</td>
+      <td> F</td>
+      <td>      other</td>
+      <td> 94043</td>
+    </tr>
+    <tr>
+      <th>820  </th>
+      <td> 1</td>
+      <td> Toy Story (1995)</td>
+      <td> 5</td>
+      <td> 4</td>
+      <td> 33</td>
+      <td> F</td>
+      <td>      other</td>
+      <td> 15213</td>
+    </tr>
+    <tr>
+      <th>35865</th>
+      <td> 1</td>
+      <td> Toy Story (1995)</td>
+      <td> 6</td>
+      <td> 4</td>
+      <td> 42</td>
+      <td> M</td>
+      <td>  executive</td>
+      <td> 98101</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>get_movie_reviews(100, set(range(1, 10)))
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MovieId</th>
+      <th>Title</th>
+      <th>UserId</th>
+      <th>Rating</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Occupation</th>
+      <th>ZipCode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>20202</th>
+      <td> 100</td>
+      <td> Fargo (1996)</td>
+      <td> 1</td>
+      <td> 5</td>
+      <td> 24</td>
+      <td> M</td>
+      <td>    technician</td>
+      <td> 85711</td>
+    </tr>
+    <tr>
+      <th>15009</th>
+      <td> 100</td>
+      <td> Fargo (1996)</td>
+      <td> 2</td>
+      <td> 5</td>
+      <td> 53</td>
+      <td> F</td>
+      <td>         other</td>
+      <td> 94043</td>
+    </tr>
+    <tr>
+      <th>843  </th>
+      <td> 100</td>
+      <td> Fargo (1996)</td>
+      <td> 5</td>
+      <td> 5</td>
+      <td> 33</td>
+      <td> F</td>
+      <td>         other</td>
+      <td> 15213</td>
+    </tr>
+    <tr>
+      <th>35894</th>
+      <td> 100</td>
+      <td> Fargo (1996)</td>
+      <td> 6</td>
+      <td> 5</td>
+      <td> 42</td>
+      <td> M</td>
+      <td>     executive</td>
+      <td> 98101</td>
+    </tr>
+    <tr>
+      <th>74830</th>
+      <td> 100</td>
+      <td> Fargo (1996)</td>
+      <td> 7</td>
+      <td> 5</td>
+      <td> 57</td>
+      <td> M</td>
+      <td> administrator</td>
+      <td> 91344</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>get_movie_reviews(784, set(range(1, 784)))
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+<div style="max-height:1000px;max-width:1500px;overflow:auto;">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>MovieId</th>
+      <th>Title</th>
+      <th>UserId</th>
+      <th>Rating</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Occupation</th>
+      <th>ZipCode</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>18103</th>
+      <td> 784</td>
+      <td> Beyond Bedlam (1993)</td>
+      <td>  13</td>
+      <td> 1</td>
+      <td> 47</td>
+      <td> M</td>
+      <td>   educator</td>
+      <td> 29206</td>
+    </tr>
+    <tr>
+      <th>67420</th>
+      <td> 784</td>
+      <td> Beyond Bedlam (1993)</td>
+      <td> 405</td>
+      <td> 1</td>
+      <td> 22</td>
+      <td> F</td>
+      <td> healthcare</td>
+      <td> 10019</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#Task t2c: Let us now calculate the similarity between two movies</span>
@@ -1988,7 +2287,7 @@ RU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[50]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
@@ -2020,7 +2319,7 @@ RU5ErkJggg==
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#Task t2d: Given a movie, find the top-k most similar movies</span>
@@ -2033,8 +2332,6 @@ RU5ErkJggg==
 <span class="c"># remember to pass min_common_users to calculate_similarity</span>
 <span class="k">def</span> <span class="nf">get_top_k_similar_movies</span><span class="p">(</span><span class="n">input_movie_name</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">min_common_users</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
     <span class="k">return</span> <span class="bp">None</span>
-
-        
 </pre></div>
 
 </div>
@@ -2128,22 +2425,75 @@ Movies similar to Shawshank Redemption [100] [(9.2736184954957039, &apos;Glory (
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Task-3:-Item-based-Collaborative-Filtering">Task 3: Item based Collaborative Filtering<a class="anchor-link" href="#Task-3:-Item-based-Collaborative-Filtering">&#182;</a></h1><p>In this task, let us try to perform item based collaborative filtering.</p>
+<h1 id="Task-3:-Item-based-Collaborative-Filtering">Task 3: Item based Collaborative Filtering<a class="anchor-link" href="#Task-3:-Item-based-Collaborative-Filtering">&#182;</a></h1><p>In this task, let us try to perform item based collaborative filtering. In spirit, it is very similar to what you already did for Task 2. With some minor changes, you can easily build an item based collaborative filtering recommenders.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="c"># By default euclidean distance can be give arbitrary values</span>
+<span class="c"># Let us &quot;normalize&quot; it by limit its value between 0 and 1 and slightly change the interpretation</span>
+<span class="c"># 0 means that the preferences are very different</span>
+<span class="c"># 1 means that preferences are identical</span>
+<span class="c"># For tasks 3 and 4, remember to use this function</span>
+
+<span class="c">#Vec1 and vec2 are vectors</span>
+<span class="k">def</span> <span class="nf">euclidean_distance_normed</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">vec1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="n">euc_distance</span> <span class="o">=</span> <span class="n">euclidean_distances</span><span class="p">(</span><span class="n">vec1</span><span class="p">,</span> <span class="n">vec2</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">euc_distance</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="c">#Task t3a:</span>
-<span class="c"># In this task, you want to predict the rating that an user would give to a movie</span>
-<span class="c"># Use the item based collaborative filtering</span>
+<span class="c"># In this task, you want to compute the similarity between two items</span>
+<span class="c">#  which in this case means ratings_df</span>
+<span class="c"># You can use code from 2c except that you must now call euclidean_distance_normed</span>
+<span class="c">#  when computing the distance</span>
 
-<span class="k">def</span> <span class="nf">predict_rating_item_based_collaborative_filtering</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">movie_id</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mf">0.0</span>
+<span class="k">def</span> <span class="nf">calculate_similarity_normed</span><span class="p">(</span><span class="n">movie_name_1</span><span class="p">,</span> <span class="n">movie_name_2</span><span class="p">,</span> <span class="n">min_common_users</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">movie1</span> <span class="o">=</span> <span class="n">movie_name_to_id_dictionary</span><span class="p">[</span><span class="n">movie_name_1</span><span class="p">]</span>
+    <span class="n">movie2</span> <span class="o">=</span> <span class="n">movie_name_to_id_dictionary</span><span class="p">[</span><span class="n">movie_name_2</span><span class="p">]</span>
+
+    <span class="c">#This is the set of UNIQUE user ids  who reviewed  movie1</span>
+    <span class="n">users_who_rated_movie1</span> <span class="o">=</span> <span class="bp">None</span>
+    
+    <span class="c">#This is the set of UNIQUE user ids  who reviewed  movie2</span>
+    <span class="n">users_who_rated_movie2</span> <span class="o">=</span> <span class="bp">None</span>
+     
+    <span class="c">#Compute the common users who rated both movies: </span>
+    <span class="c"># hint convert both to set and do the intersection</span>
+    <span class="n">common_users</span> <span class="o">=</span> <span class="bp">None</span>
+
+    <span class="c">#Using the code you wrote in t2a, get the reviews for the movies and common users</span>
+    <span class="n">movie1_reviews</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">movie2_reviews</span> <span class="o">=</span> <span class="bp">None</span>
+    
+    <span class="c">#Do not change below</span>
+    
+    <span class="c">#Now you have the data frame for both movies</span>
+    <span class="c"># Use the euclidean_distances function from sklean (imported already)</span>
+    <span class="c"># to compute the distance between their rating values</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="n">euclidean_distance_normed</span><span class="p">(</span><span class="n">movie1_reviews</span><span class="p">[</span><span class="s">&#39;Rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">movie2_reviews</span><span class="p">[</span><span class="s">&#39;Rating&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">common_users</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_common_users</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="n">distance</span>
 </pre></div>
 
 </div>
@@ -2153,17 +2503,547 @@ Movies similar to Shawshank Redemption [100] [(9.2736184954957039, &apos;Glory (
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#Task t3b:</span>
-<span class="c"># Given a user id, recommend the top-k movies that he/she has NOT rated</span>
-<span class="c">#    along with their predicted ratings</span>
-<span class="k">def</span> <span class="nf">recommend_top_k_movies_item_based_collaborative_filtering</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[]</span>
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="k">print</span> <span class="n">calculate_similarity_normed</span><span class="p">(</span><span class="s">&quot;Toy Story (1995)&quot;</span><span class="p">,</span> <span class="s">&quot;GoldenEye (1995)&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">calculate_similarity_normed</span><span class="p">(</span><span class="s">&quot;GoldenEye (1995)&quot;</span><span class="p">,</span> <span class="s">&quot;Tomorrow Never Dies (1997)&quot;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">calculate_similarity_normed</span><span class="p">(</span><span class="s">&quot;Batman Forever (1995)&quot;</span><span class="p">,</span> <span class="s">&quot;Batman &amp; Robin (1997)&quot;</span><span class="p">)</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.0684862527649
+0.138026263116
+0.195194101601
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+
+<span class="c">#We are now going to create item-item similarity database</span>
+<span class="c"># Since our data is &quot;small&quot;, we will use a non-traditional approach of using nested hashes</span>
+<span class="c"># In real-life, using something like databases or other data structures is far more preferable</span>
+
+<span class="c">#Here is the high level structure</span>
+<span class="c">#{</span>
+<span class="c">#    movie_name_1:  </span>
+<span class="c">#    { </span>
+<span class="c">#        movie_name_2: similarity_between_movie_1_and_2, </span>
+<span class="c">#        movie_name_3: similarity_between_movie_1_and_3, </span>
+<span class="c">#        ....</span>
+<span class="c">#        movie_name_n: similarity_between_movie_1_and_n</span>
+<span class="c">#    },</span>
+<span class="c">#    movie_name_2:</span>
+<span class="c">#    {</span>
+<span class="c">#        movie_name_1: similarity_between_movie_2_and_1, </span>
+<span class="c">#        movie_name_3: similarity_between_movie_2_and_3, </span>
+<span class="c">#        ....</span>
+<span class="c">#        movie_name_n: similarity_between_movie_2_and_n</span>
+<span class="c">#    },</span>
+<span class="c">#    ....</span>
+<span class="c">#    movie_name_n:</span>
+<span class="c">#    {</span>
+<span class="c">#        movie_name_1: similarity_between_movie_n_and_1, </span>
+<span class="c">#        movie_name_2: similarity_between_movie_n_and_2, </span>
+<span class="c">#        ....</span>
+<span class="c">#        movie_name_n-1: similarity_between_movie_n_and_n-1</span>
+<span class="c">#    },</span>
+<span class="c">#}    </span>
+    
+
+<span class="c">#Here is how to use this data structuere:</span>
+
+<span class="c">#To get similarity between movies</span>
+<span class="c">#   data[movie1][movie2]</span>
+<span class="c">#To get similarity between one movie and all others</span>
+<span class="c">#   data[movie1]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#DO not change below</span>
+<span class="c">#This hash stores the movie to movie </span>
+<span class="c"># as described above</span>
+<span class="n">movie_similarity_hash</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Item based filtering is expensive as you need to compute similarity of all pairs of items</span>
+<span class="c"># for this dataset it is 1682*1682 ~ 28 lakh pairs or 2.8 million</span>
+<span class="c"># running all of them might take hours and close to a day</span>
+<span class="c"># instead let us run on a smaller dataset</span>
+<span class="c"># specifically, let us only focus on the top-250 movies based on ratings</span>
+<span class="c"># which is more manageable</span>
+
+
+<span class="c">#Task t3b: </span>
+<span class="c"># Get the top-k movie names with most ratings</span>
+<span class="c">#Hint: use Counter class</span>
+
+<span class="k">def</span> <span class="nf">top_k_movie_names</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+    <span class="n">movie_ratings_counter</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">()</span>
+    
+    <span class="c">#Your code below</span>
+
+    <span class="k">return</span> <span class="n">movie_ratings_counter</span><span class="o">.</span><span class="n">most_common</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="k">print</span> <span class="s">&quot;Top-10&quot;</span><span class="p">,</span> <span class="n">top_k_movie_names</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+<span class="k">print</span> <span class="s">&quot;Top-25&quot;</span><span class="p">,</span> <span class="n">top_k_movie_names</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Top-10 [(&apos;Star Wars (1977)&apos;, 583), (&apos;Contact (1997)&apos;, 509), (&apos;Fargo (1996)&apos;, 508), (&apos;Return of the Jedi (1983)&apos;, 507), (&apos;Liar Liar (1997)&apos;, 485), (&apos;English Patient, The (1996)&apos;, 481), (&apos;Scream (1996)&apos;, 478), (&apos;Toy Story (1995)&apos;, 452), (&apos;Air Force One (1997)&apos;, 431), (&apos;Independence Day (ID4) (1996)&apos;, 429)] 
+
+Top-25 [(&apos;Star Wars (1977)&apos;, 583), (&apos;Contact (1997)&apos;, 509), (&apos;Fargo (1996)&apos;, 508), (&apos;Return of the Jedi (1983)&apos;, 507), (&apos;Liar Liar (1997)&apos;, 485), (&apos;English Patient, The (1996)&apos;, 481), (&apos;Scream (1996)&apos;, 478), (&apos;Toy Story (1995)&apos;, 452), (&apos;Air Force One (1997)&apos;, 431), (&apos;Independence Day (ID4) (1996)&apos;, 429), (&apos;Raiders of the Lost Ark (1981)&apos;, 420), (&apos;Godfather, The (1972)&apos;, 413), (&apos;Pulp Fiction (1994)&apos;, 394), (&apos;Twelve Monkeys (1995)&apos;, 392), (&apos;Silence of the Lambs, The (1991)&apos;, 390), (&apos;Jerry Maguire (1996)&apos;, 384), (&apos;Chasing Amy (1997)&apos;, 379), (&apos;Rock, The (1996)&apos;, 378), (&apos;Empire Strikes Back, The (1980)&apos;, 367), (&apos;Star Trek: First Contact (1996)&apos;, 365), (&apos;Back to the Future (1985)&apos;, 350), (&apos;Titanic (1997)&apos;, 350), (&apos;Mission: Impossible (1996)&apos;, 344), (&apos;Fugitive, The (1993)&apos;, 336), (&apos;Indiana Jones and the Last Crusade (1989)&apos;, 331)] 
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="n">top_250_movie_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">item</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">top_k_movie_names</span><span class="p">(</span><span class="mi">250</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Task t3c:</span>
+<span class="c">#Use the following logic</span>
+<span class="c">#  for each movie in movie_names:</span>
+<span class="c">#    for all other movies in movie_names:</span>
+<span class="c">#      compute similarity between  two movies using calculate_similarity_normed</span>
+<span class="c">#      remember to pass min_common_users to that function</span>
+<span class="c">#  note that movie_similarity_hash is a defaultdict </span>
+<span class="c">#  so similarity between movie1 and movie2 can be set as movie_similarity_hash[movie1][movie2]</span>
+<span class="c">#  btw, similarity in our case is commutative. </span>
+<span class="c">#   i.e. similarity(movie1, movie2) = similarity(movie2, movie1)</span>
+<span class="c">#   so do not call the function twice !</span>
+<span class="c"># movie_names is an array that lists the movies for which you have to compute pairwise similarity</span>
+<span class="k">def</span> <span class="nf">compute_movie_to_movie_similarity</span><span class="p">(</span><span class="n">movie_names</span><span class="p">,</span> <span class="n">min_common_users</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="c">#Your code beloww</span>
+    <span class="k">pass</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+
+<span class="c">#Let us first test if your code above is correct by testing against a small subset of data</span>
+<span class="n">movie_similarity_hash</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+<span class="c"># let use the top-10 movies</span>
+<span class="n">compute_movie_to_movie_similarity</span><span class="p">(</span><span class="n">top_250_movie_names</span><span class="p">[:</span><span class="mi">10</span><span class="p">],</span> <span class="n">min_common_users</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c">#Get similarity with </span>
+<span class="n">display</span><span class="p">(</span><span class="n">movie_similarity_hash</span><span class="p">[</span><span class="s">&quot;Toy Story (1995)&quot;</span><span class="p">])</span>
+<span class="n">display</span><span class="p">(</span><span class="n">movie_similarity_hash</span><span class="p">[</span><span class="s">&#39;Return of the Jedi (1983)&#39;</span><span class="p">])</span>
+
+<span class="k">print</span> <span class="n">movie_similarity_hash</span><span class="p">[</span><span class="s">&quot;Toy Story (1995)&quot;</span><span class="p">][</span><span class="s">&quot;Independence Day (ID4) (1996)&quot;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>{&apos;Air Force One (1997)&apos;: 0.05697049581409102,
+ &apos;Contact (1997)&apos;: 0.046577726053728993,
+ &apos;English Patient, The (1996)&apos;: 0.047393923678019305,
+ &apos;Fargo (1996)&apos;: 0.039703378843999403,
+ &apos;Independence Day (ID4) (1996)&apos;: 0.040932023773211611,
+ &apos;Liar Liar (1997)&apos;: 0.045702558661657698,
+ &apos;Return of the Jedi (1983)&apos;: 0.046005690800297719,
+ &apos;Scream (1996)&apos;: 0.048137743418679969,
+ &apos;Star Wars (1977)&apos;: 0.040475114406879495}</pre>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>{&apos;Air Force One (1997)&apos;: 0.047007646177349489,
+ &apos;Contact (1997)&apos;: 0.045210588948186241,
+ &apos;English Patient, The (1996)&apos;: 0.04318065266563334,
+ &apos;Fargo (1996)&apos;: 0.038852101069895194,
+ &apos;Independence Day (ID4) (1996)&apos;: 0.038974721601113524,
+ &apos;Liar Liar (1997)&apos;: 0.037548797615781393,
+ &apos;Scream (1996)&apos;: 0.041895006229997207,
+ &apos;Star Wars (1977)&apos;: 0.052554803633703538,
+ &apos;Toy Story (1995)&apos;: 0.046005690800297719}</pre>
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.0409320237732
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="c">#Let us now test against top-250 most popular movies</span>
+<span class="c">#This might take 10-20 mins to run!</span>
+<span class="n">movie_similarity_hash</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+<span class="n">compute_movie_to_movie_similarity</span><span class="p">(</span><span class="n">top_250_movie_names</span><span class="p">,</span> <span class="n">min_common_users</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="c">#Do this if you want to persist the data </span>
+
+<span class="c"># Let us persist the movie-movie similarity data structure </span>
+<span class="c"># that way you dont need to re-run the whole thing</span>
+<span class="c">#pickle is a serialization library in Python</span>
+<span class="c"># To persist/serialize, use the following line</span>
+<span class="c">#pickle.dump(movie_similarity_hash, open(&quot;movie_similarity.pickle&quot;, &quot;wb&quot;))</span>
+<span class="c"># To deserialize, uncomment the following line </span>
+<span class="c">#movie_similarity_hash = pickle.load( open( &quot;movie_similarity.pickle&quot;, &quot;rb&quot; ) )</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="k">for</span> <span class="n">movie_name</span> <span class="ow">in</span> <span class="n">top_250_movie_names</span><span class="p">[:</span><span class="mi">10</span><span class="p">]:</span>
+    <span class="k">print</span> <span class="s">&quot;Top-10 most similar movies for &quot;</span><span class="p">,</span> <span class="n">movie_name</span><span class="p">,</span> <span class="s">&quot; :&quot;</span><span class="p">,</span> 
+    <span class="k">print</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">movie_similarity_hash</span><span class="p">[</span><span class="n">movie_name</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">key</span><span class="o">=</span><span class="n">operator</span><span class="o">.</span><span class="n">itemgetter</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)[:</span><span class="mi">10</span><span class="p">]</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Top-10 most similar movies for  Star Wars (1977)  : [(&apos;Fly Away Home (1996)&apos;, 0.12613198362288319), (&quot;Ulee&apos;s Gold (1997)&quot;, 0.084626326089585924), (&apos;Good Will Hunting (1997)&apos;, 0.082402672566341831), (&apos;Apt Pupil (1998)&apos;, 0.080920442903129275), (&apos;Gattaca (1997)&apos;, 0.080069658725771431), (&apos;Wag the Dog (1997)&apos;, 0.07979214086871815), (&apos;Sling Blade (1996)&apos;, 0.079245895810613809), (&apos;African Queen, The (1951)&apos;, 0.07871102875529136), (&apos;Rainmaker, The (1997)&apos;, 0.07844773813482285), (&apos;Secrets &amp; Lies (1996)&apos;, 0.075254704849630052)]
+
+
+Top-10 most similar movies for  Contact (1997)  : [(&apos;Philadelphia (1993)&apos;, 0.10230216299200159), (&apos;Sling Blade (1996)&apos;, 0.094882133490771736), (&apos;Fried Green Tomatoes (1991)&apos;, 0.093051003668180476), (&apos;Room with a View, A (1986)&apos;, 0.092610094432975923), (&quot;Singin&apos; in the Rain (1952)&quot;, 0.092175602102042759), (&apos;Shine (1996)&apos;, 0.092175602102042759), (&apos;Maltese Falcon, The (1941)&apos;, 0.092175602102042759), (&apos;Bound (1996)&apos;, 0.091747370480532636), (&apos;Sneakers (1992)&apos;, 0.091747370480532636), (&apos;Mask, The (1994)&apos;, 0.089695015344041368)]
+
+
+Top-10 most similar movies for  Fargo (1996)  : [(&apos;Manchurian Candidate, The (1962)&apos;, 0.099449199236264399), (&quot;Ulee&apos;s Gold (1997)&quot;, 0.08815170219611887), (&apos;Maltese Falcon, The (1941)&apos;, 0.087410245452875457), (&apos;Good Will Hunting (1997)&apos;, 0.085983444756559363), (&apos;Sling Blade (1996)&apos;, 0.084297269155557394), (&apos;Rainmaker, The (1997)&apos;, 0.081799777282574593), (&apos;African Queen, The (1951)&apos;, 0.081210303141612275), (&apos;Wag the Dog (1997)&apos;, 0.080920442903129275), (&apos;Rear Window (1954)&apos;, 0.07844773813482285), (&apos;Vertigo (1958)&apos;, 0.07844773813482285)]
+
+
+Top-10 most similar movies for  Return of the Jedi (1983)  : [(&apos;Fly Away Home (1996)&apos;, 0.12849622184722817), (&quot;Ulee&apos;s Gold (1997)&quot;, 0.10676232268609791), (&apos;Gattaca (1997)&apos;, 0.093952725662966904), (&apos;Wag the Dog (1997)&apos;, 0.091747370480532636), (&apos;Rainmaker, The (1997)&apos;, 0.090094108300614636), (&apos;Seven Years in Tibet (1997)&apos;, 0.089301349778500683), (&apos;Shine (1996)&apos;, 0.08704668331836253), (&apos;Apt Pupil (1998)&apos;, 0.086687761389570364), (&apos;Kiss the Girls (1997)&apos;, 0.084626326089585924), (&apos;Sling Blade (1996)&apos;, 0.083019512538737683)]
+
+
+Top-10 most similar movies for  Liar Liar (1997)  : [(&apos;Mask, The (1994)&apos;, 0.096331396777550107), (&apos;While You Were Sleeping (1995)&apos;, 0.091325248684348978), (&apos;Ghost and the Darkness, The (1996)&apos;, 0.090498756211208911), (&apos;GoldenEye (1995)&apos;, 0.090094108300614636), (&apos;Maverick (1994)&apos;, 0.08815170219611887), (&apos;Con Air (1997)&apos;, 0.083972136564709449), (&apos;River Wild, The (1994)&apos;, 0.083333333333333329), (&apos;Cape Fear (1991)&apos;, 0.083019512538737683), (&apos;Home Alone (1990)&apos;, 0.082709315626306693), (&apos;Pretty Woman (1990)&apos;, 0.081503394203052748)]
+
+
+Top-10 most similar movies for  English Patient, The (1996)  : [(&apos;Fried Green Tomatoes (1991)&apos;, 0.094413879633246586), (&apos;Maverick (1994)&apos;, 0.092175602102042759), (&apos;Room with a View, A (1986)&apos;, 0.090498756211208911), (&apos;Cinderella (1950)&apos;, 0.090094108300614636), (&apos;Right Stuff, The (1983)&apos;, 0.088529810866542852), (&apos;Firm, The (1993)&apos;, 0.08815170219611887), (&apos;Sneakers (1992)&apos;, 0.087778549957133301), (&apos;Mask, The (1994)&apos;, 0.086333380578904162), (&apos;Cape Fear (1991)&apos;, 0.084626326089585924), (&quot;Monty Python&apos;s Life of Brian (1979)&quot;, 0.084626326089585924)]
+
+
+Top-10 most similar movies for  Scream (1996)  : [(&apos;Maverick (1994)&apos;, 0.10113069765789216), (&quot;Singin&apos; in the Rain (1952)&quot;, 0.094413879633246586), (&apos;Cinderella (1950)&apos;, 0.088529810866542852), (&apos;Room with a View, A (1986)&apos;, 0.088529810866542852), (&apos;Bound (1996)&apos;, 0.084297269155557394), (&apos;While You Were Sleeping (1995)&apos;, 0.083972136564709449), (&apos;Philadelphia (1993)&apos;, 0.082709315626306693), (&apos;Shine (1996)&apos;, 0.082099515221765715), (&apos;Clueless (1995)&apos;, 0.081799777282574593), (&apos;Crimson Tide (1995)&apos;, 0.080920442903129275)]
+
+
+Top-10 most similar movies for  Toy Story (1995)  : [(&quot;Ulee&apos;s Gold (1997)&quot;, 0.11696132920126338), (&apos;Kiss the Girls (1997)&apos;, 0.10815240673485554), (&apos;Rainmaker, The (1997)&apos;, 0.1060878539025194), (&apos;Gattaca (1997)&apos;, 0.10290397182775128), (&apos;Wag the Dog (1997)&apos;, 0.10230216299200159), (&apos;Shine (1996)&apos;, 0.10171118008217982), (&apos;Seven Years in Tibet (1997)&apos;, 0.098907726574930466), (&apos;Cool Hand Luke (1967)&apos;, 0.0973366881823024), (&apos;Peacemaker, The (1997)&apos;, 0.095840694682461411), (&apos;Manchurian Candidate, The (1962)&apos;, 0.093051003668180476)]
+
+
+Top-10 most similar movies for  Air Force One (1997)  : [(&apos;Cinderella (1950)&apos;, 0.11519216806670013), (&apos;While You Were Sleeping (1995)&apos;, 0.11189119247086728), (&apos;Firm, The (1993)&apos;, 0.11034777731716484), (&apos;Sneakers (1992)&apos;, 0.10960059084055324), (&apos;Maverick (1994)&apos;, 0.10230216299200159), (&apos;Crimson Tide (1995)&apos;, 0.10230216299200159), (&apos;Bound (1996)&apos;, 0.10171118008217982), (&apos;GoldenEye (1995)&apos;, 0.10113069765789216), (&apos;Hunt for Red October, The (1990)&apos;, 0.10056040392403998), (&apos;Mask, The (1994)&apos;, 0.10000000000000001)]
+
+
+Top-10 most similar movies for  Independence Day (ID4) (1996)  : [(&apos;Rainmaker, The (1997)&apos;, 0.11034777731716484), (&apos;Kiss the Girls (1997)&apos;, 0.10745035092526581), (&apos;Gattaca (1997)&apos;, 0.10477782979607683), (&quot;Ulee&apos;s Gold (1997)&quot;, 0.10171118008217982), (&apos;Peacemaker, The (1997)&apos;, 0.098907726574930466), (&apos;Seven Years in Tibet (1997)&apos;, 0.093952725662966904), (&apos;Wag the Dog (1997)&apos;, 0.091747370480532636), (&apos;Cop Land (1997)&apos;, 0.089301349778500683), (&apos;G.I. Jane (1997)&apos;, 0.087778549957133301), (&apos;Maverick (1994)&apos;, 0.086333380578904162)]
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Task t3d</span>
+
+<span class="c">#Before doing t3d, please complete t4a so that user_rating_hash is available</span>
+<span class="c"># this will make the code below easier</span>
+
+<span class="c">#In this task, we are going to predict the rating of a user u for a movie m using item based collaborative filtering</span>
+<span class="c">#Here is the high level logic:</span>
+<span class="c"># for each item i rated by this user:</span>
+<span class="c">#    s = similarity between i and input movie m </span>
+<span class="c">#    if similarity between i and m is 0, ignore this item </span>
+<span class="c">#    compute weighted rating for m based on i as rating for i * s</span>
+<span class="c"># compute the predicted rating as sum of all weighted ratings / sum of all similarities</span>
+
+<span class="k">def</span> <span class="nf">predict_rating_for_movie_icf</span><span class="p">(</span><span class="n">movie_similarity_hash</span><span class="p">,</span> <span class="n">input_user_id</span><span class="p">,</span> <span class="n">input_movie_name</span><span class="p">,</span> <span class="n">movies_considered</span><span class="p">):</span>
+    <span class="n">total_weighted_rating</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">total_similarity</span><span class="o">=</span> <span class="mf">0.0</span>
+        
+    <span class="c">#Hint: movie_similarity_hash is a nested hash where user id is key and </span>
+    <span class="c">#  all their rating as a dictionary  </span>
+    <span class="c"># this dictionary is ordered as moviename: rating</span>
+
+    <span class="c">#if this user has already rated the movie, return that rating</span>
+    
+    <span class="c">#For each movie the user has rated</span>
+
+        <span class="c">#if user rated some movie, but it is not in the subset of movies that we computed pairwise similarity</span>
+        <span class="c"># such as top-250, then do not consider it either</span>
+        <span class="c"># for this task, the input is in movies_considered </span>
+        
+        <span class="c">#compute similarity between movies</span>
+        <span class="c">#dont recompute = use the hash</span>
+        
+        <span class="c">#Reject item if similarity is 0</span>
+                     
+        <span class="c">#Compute weighted rating</span>
+        
+        <span class="c">#update total_weighted_rating and total_similarity</span>
+            
+    <span class="c">#Do not change below</span>
+    <span class="k">if</span> <span class="n">total_similarity</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    
+    <span class="k">return</span> <span class="n">total_weighted_rating</span> <span class="o">/</span> <span class="n">total_similarity</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="c">#Let us compute the rating for first 5 users for the top-20 movies that they have not seen</span>
+<span class="k">for</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">user_id</span><span class="p">,</span> <span class="p">[</span> <span class="p">(</span><span class="n">movie_name</span><span class="p">,</span> 
+                        <span class="nb">round</span><span class="p">(</span><span class="n">predict_rating_for_movie_icf</span><span class="p">(</span><span class="n">movie_similarity_hash</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">movie_name</span><span class="p">,</span> <span class="n">top_250_movie_names</span><span class="p">),</span><span class="mi">2</span><span class="p">))</span>
+                       <span class="k">for</span> <span class="n">movie_name</span> <span class="ow">in</span> <span class="n">top_250_movie_names</span><span class="p">[:</span><span class="mi">20</span><span class="p">]</span> 
+                        <span class="k">if</span> <span class="n">movie_name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">user_rating_hash</span><span class="p">[</span><span class="n">user_id</span><span class="p">]]</span>
+           
+<span class="c">#print movie_name, predict_rating_for_movie_icf(movie_similarity_hash, 1, &#39;Liar Liar (1997)&#39;, min_common_users=25)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 [(&apos;Liar Liar (1997)&apos;, 3.83), (&apos;English Patient, The (1996)&apos;, 3.87), (&apos;Scream (1996)&apos;, 3.87), (&apos;Air Force One (1997)&apos;, 3.87)]
+2 [(&apos;Return of the Jedi (1983)&apos;, 3.91), (&apos;Independence Day (ID4) (1996)&apos;, 3.85), (&apos;Raiders of the Lost Ark (1981)&apos;, 3.92), (&apos;Pulp Fiction (1994)&apos;, 3.93), (&apos;Twelve Monkeys (1995)&apos;, 3.87), (&apos;Silence of the Lambs, The (1991)&apos;, 3.91), (&apos;Chasing Amy (1997)&apos;, 3.89), (&apos;Rock, The (1996)&apos;, 3.86), (&apos;Empire Strikes Back, The (1980)&apos;, 3.91), (&apos;Star Trek: First Contact (1996)&apos;, 3.86)]
+3 [(&apos;Star Wars (1977)&apos;, 2.95), (&apos;Fargo (1996)&apos;, 2.92), (&apos;English Patient, The (1996)&apos;, 2.92), (&apos;Toy Story (1995)&apos;, 2.92), (&apos;Independence Day (ID4) (1996)&apos;, 2.89), (&apos;Raiders of the Lost Ark (1981)&apos;, 2.92), (&apos;Godfather, The (1972)&apos;, 2.93), (&apos;Pulp Fiction (1994)&apos;, 2.95), (&apos;Twelve Monkeys (1995)&apos;, 2.94), (&apos;Silence of the Lambs, The (1991)&apos;, 2.92), (&apos;Jerry Maguire (1996)&apos;, 2.9), (&apos;Rock, The (1996)&apos;, 2.89), (&apos;Empire Strikes Back, The (1980)&apos;, 2.95), (&apos;Star Trek: First Contact (1996)&apos;, 2.9)]
+4 [(&apos;Fargo (1996)&apos;, 4.21), (&apos;Return of the Jedi (1983)&apos;, 4.26), (&apos;English Patient, The (1996)&apos;, 4.17), (&apos;Toy Story (1995)&apos;, 4.23), (&apos;Independence Day (ID4) (1996)&apos;, 4.18), (&apos;Raiders of the Lost Ark (1981)&apos;, 4.27), (&apos;Godfather, The (1972)&apos;, 4.24), (&apos;Pulp Fiction (1994)&apos;, 4.25), (&apos;Twelve Monkeys (1995)&apos;, 4.24), (&apos;Silence of the Lambs, The (1991)&apos;, 4.27), (&apos;Jerry Maguire (1996)&apos;, 4.23), (&apos;Chasing Amy (1997)&apos;, 4.19), (&apos;Rock, The (1996)&apos;, 4.23), (&apos;Empire Strikes Back, The (1980)&apos;, 4.29), (&apos;Star Trek: First Contact (1996)&apos;, 4.22)]
+5 [(&apos;Contact (1997)&apos;, 3.35), (&apos;Liar Liar (1997)&apos;, 3.25), (&apos;English Patient, The (1996)&apos;, 3.31), (&apos;Scream (1996)&apos;, 3.3), (&apos;Air Force One (1997)&apos;, 3.29), (&apos;Godfather, The (1972)&apos;, 3.36), (&apos;Pulp Fiction (1994)&apos;, 3.34), (&apos;Twelve Monkeys (1995)&apos;, 3.35), (&apos;Jerry Maguire (1996)&apos;, 3.32), (&apos;Chasing Amy (1997)&apos;, 3.36), (&apos;Rock, The (1996)&apos;, 3.32)]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Task t3e: </span>
+<span class="c">#Here is the pseudocode for recommending movies</span>
+<span class="c"># for each movie this user has not rated in movies_considered:</span>
+<span class="c">#           predict rating for this movie and this user using t4d</span>
+<span class="c">#  return the top-k movies</span>
+<span class="k">def</span> <span class="nf">recommend_movies_icf</span><span class="p">(</span><span class="n">input_user_id</span><span class="p">,</span> <span class="n">movies_considered</span><span class="p">,</span> <span class="n">movie_similarity_hash</span><span class="p">,</span>
+                             <span class="n">user_rating_hash</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_common_movies</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">predicted_ratings</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c">#Your code here</span>
+
+    
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">predicted_ratings</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)[:</span><span class="n">k</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below:</span>
+
+<span class="c">#Let us predict top-5 movies for first 10 users</span>
+<span class="k">for</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">recommend_movies_icf</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">top_250_movie_names</span><span class="p">,</span> <span class="n">movie_similarity_hash</span><span class="p">,</span> 
+                               <span class="n">user_rating_hash</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_common_movies</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> 1 [(4.1925848292261962, &apos;Fly Away Home (1996)&apos;), (4.0983740953356511, &quot;Ulee&apos;s Gold (1997)&quot;), (4.0853921793090748, &apos;Seven Years in Tibet (1997)&apos;), (3.9897313336931295, &apos;Maltese Falcon, The (1941)&apos;), (3.9879158866803466, &apos;Manchurian Candidate, The (1962)&apos;), (3.9876557080885249, &apos;Cop Land (1997)&apos;), (3.9782574914172879, &apos;Wag the Dog (1997)&apos;), (3.978195449823783, &quot;Singin&apos; in the Rain (1952)&quot;), (3.9776616970615382, &apos;Secrets &amp; Lies (1996)&apos;), (3.9561068860479827, &apos;Mother (1996)&apos;)]
+2 [(4.0808708045508908, &apos;Cool Hand Luke (1967)&apos;), (4.0758760619946868, &apos;Maltese Falcon, The (1941)&apos;), (4.0533051054926501, &apos;Patton (1970)&apos;), (4.0083596465934832, &apos;Reservoir Dogs (1992)&apos;), (3.9881299279283864, &apos;Wag the Dog (1997)&apos;), (3.9839921546749677, &apos;Bound (1996)&apos;), (3.9765105208616371, &apos;Father of the Bride Part II (1995)&apos;), (3.9734726233103057, &apos;Abyss, The (1989)&apos;), (3.9617904510489481, &apos;Rumble in the Bronx (1995)&apos;), (3.9401087977258875, &apos;Manchurian Candidate, The (1962)&apos;)]
+3 [(4.0, &apos;Fly Away Home (1996)&apos;), (3.2010326559372495, &apos;Chinatown (1974)&apos;), (3.157701069290638, &apos;Beavis and Butt-head Do America (1996)&apos;), (3.143952685392172, &apos;Ed Wood (1994)&apos;), (3.1433803387730994, &apos;Clerks (1994)&apos;), (3.1237868346046724, &apos;Austin Powers: International Man of Mystery (1997)&apos;), (3.0798009033435956, &apos;Annie Hall (1977)&apos;), (3.0759377820139293, &apos;Room with a View, A (1986)&apos;), (3.0697683194380638, &apos;Postino, Il (1994)&apos;), (3.0661680108458311, &apos;Mighty Aphrodite (1995)&apos;)]
+4 [(5.0, &apos;Fly Away Home (1996)&apos;), (4.4632038663842257, &apos;Searching for Bobby Fischer (1993)&apos;), (4.4196965100181682, &apos;Mighty Aphrodite (1995)&apos;), (4.4191100601766378, &apos;To Kill a Mockingbird (1962)&apos;), (4.4169766165480482, &apos;North by Northwest (1959)&apos;), (4.4094677480337543, &apos;Emma (1996)&apos;), (4.4042857143634695, &apos;Vertigo (1958)&apos;), (4.4034520554502796, &apos;Postino, Il (1994)&apos;), (4.3967716982383376, &apos;Secrets &amp; Lies (1996)&apos;), (4.3856413995509103, &apos;Big Night (1996)&apos;)]
+5 [(3.7183255738053607, &apos;Fly Away Home (1996)&apos;), (3.6633254211881798, &quot;Ulee&apos;s Gold (1997)&quot;), (3.5372799055697985, &apos;Cop Land (1997)&apos;), (3.5149683822988829, &apos;Seven Years in Tibet (1997)&apos;), (3.469581917447591, &apos;Bound (1996)&apos;), (3.4617867390614938, &apos;Wag the Dog (1997)&apos;), (3.4527021275095611, &apos;Rainmaker, The (1997)&apos;), (3.4496495884364671, &apos;Sling Blade (1996)&apos;), (3.4400533520469319, &quot;Singin&apos; in the Rain (1952)&quot;), (3.4399531973912678, &apos;Secrets &amp; Lies (1996)&apos;)]
+6 [(3.6450757118770802, &apos;Titanic (1997)&apos;), (3.6419674474846175, &apos;Swingers (1996)&apos;), (3.6346263653247584, &apos;Apt Pupil (1998)&apos;), (3.6261382018050177, &apos;Professional, The (1994)&apos;), (3.6238256630349728, &apos;Nightmare Before Christmas, The (1993)&apos;), (3.6176103367235144, &apos;Philadelphia (1993)&apos;), (3.6163393236633965, &apos;Manchurian Candidate, The (1962)&apos;), (3.6158801676523433, &apos;Everyone Says I Love You (1996)&apos;), (3.6148660366491452, &apos;Con Air (1997)&apos;), (3.6125458805115862, &apos;Mystery Science Theater 3000: The Movie (1996)&apos;)]
+7 [(4.5769327294745636, &apos;Fly Away Home (1996)&apos;), (4.3569138485911942, &apos;Boogie Nights (1997)&apos;), (4.3430811631356416, &quot;Ulee&apos;s Gold (1997)&quot;), (4.3387217336002255, &apos;Everyone Says I Love You (1996)&apos;), (4.3370856474197863, &apos;L.A. Confidential (1997)&apos;), (4.334079880695576, &apos;Good Will Hunting (1997)&apos;), (4.3302758538211039, &apos;Lone Star (1996)&apos;), (4.3231589530937846, &apos;Titanic (1997)&apos;), (4.3159277940669369, &apos;Bound (1996)&apos;), (4.3140087951876245, &apos;Big Night (1996)&apos;)]
+8 [(4.5099993281415864, &apos;Fly Away Home (1996)&apos;), (4.2346862647980528, &apos;Big Night (1996)&apos;), (4.232651237329506, &apos;Secrets &amp; Lies (1996)&apos;), (4.2214676248329042, &apos;Maltese Falcon, The (1941)&apos;), (4.2194500071542702, &apos;Manchurian Candidate, The (1962)&apos;), (4.2112900704044289, &apos;Philadelphia (1993)&apos;), (4.2088630225331416, &apos;Sling Blade (1996)&apos;), (4.2047351130720045, &quot;Singin&apos; in the Rain (1952)&quot;), (4.1991235849187269, &quot;Ulee&apos;s Gold (1997)&quot;), (4.1940617742206738, &apos;Remains of the Day, The (1993)&apos;)]
+9 [(5.0, &apos;Fly Away Home (1996)&apos;), (4.3881344831760405, &apos;Sneakers (1992)&apos;), (4.384739673791211, &apos;Cinderella (1950)&apos;), (4.3728633261524967, &apos;Crow, The (1994)&apos;), (4.3601856063557216, &apos;Good, The Bad and The Ugly, The (1966)&apos;), (4.3583657116832946, &apos;GoldenEye (1995)&apos;), (4.3537695463082429, &apos;Die Hard: With a Vengeance (1995)&apos;), (4.3487405697301451, &apos;Nightmare Before Christmas, The (1993)&apos;), (4.3485936712624973, &quot;Singin&apos; in the Rain (1952)&quot;), (4.3455946019288847, &apos;Star Trek VI: The Undiscovered Country (1991)&apos;)]
+10 [(4.3656740682168014, &quot;Ulee&apos;s Gold (1997)&quot;), (4.3633159999804878, &apos;Good Will Hunting (1997)&apos;), (4.360223994431875, &apos;Titanic (1997)&apos;), (4.352806826677643, &apos;Tomorrow Never Dies (1997)&apos;), (4.3500732774417745, &apos;Apt Pupil (1998)&apos;), (4.3494915136704577, &apos;Professional, The (1994)&apos;), (4.3491740447223943, &apos;Chasing Amy (1997)&apos;), (4.34581077138371, &apos;Good, The Bad and The Ugly, The (1966)&apos;), (4.3448056765651897, &quot;Schindler&apos;s List (1993)&quot;), (4.3436282240868342, &apos;Postino, Il (1994)&apos;)]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -2180,15 +3060,21 @@ Movies similar to Shawshank Redemption [100] [(9.2736184954957039, &apos;Glory (
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#Task t4a:</span>
-<span class="c"># In this task, you want to predict the rating that an user would give to a movie</span>
-<span class="c"># Use the user based collaborative filtering</span>
+<div class=" highlight hl-ipython2"><pre><span class="c">#In order to simplify the coding, let us create a nested hash structure to store the user-rating data</span>
+<span class="c"># It will look as follows:</span>
+<span class="c">#{</span>
+<span class="c">#    u1: {movie_name_1:rating1, movie_name_2:rating2, ....}, </span>
+<span class="c">#    ....</span>
+<span class="c">#    un: {movie_name_1:rating1, movie_name_2:rating2, ....}, </span>
+<span class="c">#}</span>
 
-<span class="k">def</span> <span class="nf">predict_rating_user_based_collaborative_filtering</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">movie_id</span><span class="p">):</span>
-    <span class="k">return</span> <span class="mf">0.0</span>
+<span class="c">#Of course, we will only store the movies that the user rated</span>
+<span class="c">#Use the all_movie_names to convert movie id to movie name</span>
+<span class="c"># remember that Movielens uses 1 based indexing</span>
+<span class="c"># so the name of movieid i is in all_movie_names[i-1]</span>
 </pre></div>
 
 </div>
@@ -2198,17 +3084,402 @@ Movies similar to Shawshank Redemption [100] [(9.2736184954957039, &apos;Glory (
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="c">#Task t4b:</span>
-<span class="c"># Given a user id, recommend the top-k movies that he/she has NOT rated</span>
-<span class="c">#    along with their predicted ratings</span>
-<span class="k">def</span> <span class="nf">recommend_top_k_movies_user_based_collaborative_filtering</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-    <span class="k">return</span> <span class="p">[]</span>
+<div class=" highlight hl-ipython2"><pre><span class="c">#Task t4a</span>
+<span class="c">#Create the data structure as discussed above</span>
+<span class="c"># here is the logic:</span>
+<span class="c"># for each line in file ml-100k/u.data:</span>
+<span class="c">#   set user_rating_hash[user][movie] = rating</span>
+<span class="c"># read the instructions above again!</span>
+
+<span class="k">def</span> <span class="nf">compute_user_rating_hash</span><span class="p">():</span>
+    <span class="n">user_rating_hash</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">dict</span><span class="p">)</span>
+    
+    <span class="c">#Your code below    </span>
+    
+    <span class="k">return</span> <span class="n">user_rating_hash</span>
 </pre></div>
 
 </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="n">user_rating_hash</span> <span class="o">=</span> <span class="n">compute_user_rating_hash</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="c">#How many users are there?</span>
+<span class="k">print</span> <span class="nb">len</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="c">#How many movies did each of the first 20 users rated?</span>
+<span class="k">print</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">20</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> 
+<span class="c">#print the ratings of user 4</span>
+<span class="n">display</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>943
+[271, 61, 53, 24, 175, 208, 401, 59, 22, 184, 181, 51, 632, 98, 103, 140, 28, 277, 20, 48]
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_text output_subarea ">
+<pre>{&apos;Air Force One (1997)&apos;: 5,
+ &apos;Assignment, The (1997)&apos;: 5,
+ &apos;Blues Brothers 2000 (1998)&apos;: 5,
+ &apos;Client, The (1994)&apos;: 3,
+ &apos;Conspiracy Theory (1997)&apos;: 3,
+ &apos;Contact (1997)&apos;: 5,
+ &apos;Cop Land (1997)&apos;: 5,
+ &apos;Desperate Measures (1998)&apos;: 5,
+ &apos;Event Horizon (1997)&apos;: 4,
+ &apos;In &amp; Out (1997)&apos;: 5,
+ &apos;Incognito (1997)&apos;: 5,
+ &apos;Indiana Jones and the Last Crusade (1989)&apos;: 3,
+ &apos;Liar Liar (1997)&apos;: 5,
+ &apos;Lost Highway (1997)&apos;: 5,
+ &apos;Mimic (1997)&apos;: 3,
+ &quot;One Flew Over the Cuckoo&apos;s Nest (1975)&quot;: 4,
+ &apos;Scream (1996)&apos;: 4,
+ &apos;Seven (Se7en) (1995)&apos;: 4,
+ &apos;Spawn (1997)&apos;: 2,
+ &apos;Star Wars (1977)&apos;: 5,
+ &apos;Starship Troopers (1997)&apos;: 4,
+ &quot;Ulee&apos;s Gold (1997)&quot;: 5,
+ &apos;Wedding Singer, The (1998)&apos;: 5,
+ &apos;Wonderland (1997)&apos;: 5}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Task t4b:</span>
+<span class="c">#We need to modify our logic for computing distance</span>
+<span class="c">#Here is the high level pseudocode:</span>
+<span class="c"># movie1 = movie names rated by user 1</span>
+<span class="c"># movie2 = movie names rated by user 2</span>
+<span class="c"># common movies = set intersection of movie1 and movie2</span>
+<span class="c"># if number of common movies is less than min_common_movies, return 0.0 [not 0]</span>
+<span class="c"># other wise create a vector with rating for common movies only</span>
+<span class="c"># compute euclidean distance between the vectors</span>
+<span class="c"># return 1 / (1+euclidean distace)</span>
+
+<span class="k">def</span> <span class="nf">compute_user_user_similarity</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="n">user_id_1</span><span class="p">,</span> <span class="n">user_id_2</span><span class="p">,</span> <span class="n">min_common_movies</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="c">#Get list of movie names rated by user 1. hint use keys function [see above for usage]</span>
+    
+    <span class="c">#compute common movies</span>
+    <span class="n">common_movies</span> <span class="o">=</span> <span class="bp">None</span>
+    
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">common_movies</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">min_common_movies</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    
+    <span class="n">common_movies</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">common_movies</span><span class="p">))</span>
+    
+    <span class="c">#vector1 is the set of ratings for user1 for movies in common_movies</span>
+    <span class="n">vector1</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="c">#vector2 is the set of ratings for user2 for movies in common_movies</span>
+    <span class="n">vector2</span> <span class="o">=</span> <span class="bp">None</span>
+    
+    <span class="c">#Compute distance and return 1.0/(1.0+distance)</span>
+    <span class="n">distance</span> <span class="o">=</span> <span class="n">euclidean_distances</span><span class="p">(</span><span class="n">vector1</span><span class="p">,</span> <span class="n">vector2</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span> <span class="mf">1.0</span> <span class="o">+</span> <span class="n">distance</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Testing code</span>
+<span class="k">print</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">compute_user_user_similarity</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+<span class="k">print</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">compute_user_user_similarity</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="mi">784</span><span class="p">,</span> <span class="n">i</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1.0, 0.16, 0.16, 0.19, 0.08, 0.07, 0.06, 0.16, 0.31, 0.1]
+[0.19, 0.19, 0.11, 0.33, 1.0, 0.19, 0.18, 0.5, 0.21, 0.29]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Task t4c</span>
+<span class="c">#This function finds the k-most similar users </span>
+<span class="c">#Here is the high level logic:</span>
+<span class="c">#  for each user in all_user_ids other than the input user id:</span>
+<span class="c">#     find similarity between this user and input_user_id and store as (similarity, other userid)</span>
+<span class="c">#     sort based on similarity</span>
+<span class="c">#  return top-k</span>
+<span class="c"># remember to pass min_common_movies</span>
+<span class="k">def</span> <span class="nf">top_k_most_similar_users</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="n">input_user_id</span><span class="p">,</span> <span class="n">all_user_ids</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_common_movies</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="n">user_similarity</span> <span class="o">=</span> <span class="p">[]</span>
+        
+    <span class="c">#Your code below</span>
+
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">user_similarity</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)[:</span><span class="n">k</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="n">all_user_ids</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">943</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">top_k_most_similar_users</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">all_user_ids</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">top_k_most_similar_users</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">all_user_ids</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">top_k_most_similar_users</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="mi">812</span><span class="p">,</span> <span class="n">all_user_ids</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">top_k_most_similar_users</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="mi">812</span><span class="p">,</span> <span class="n">all_user_ids</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[(0.41421356237309509, 876), (0.36602540378443865, 105), (0.33333333333333331, 895), (0.33333333333333331, 282), (0.33333333333333331, 107), (0.3090169943749474, 842), (0.3090169943749474, 696), (0.3090169943749474, 520), (0.3090169943749474, 516), (0.3090169943749474, 433)]
+[(0.3090169943749474, 516), (0.3090169943749474, 433), (0.3090169943749474, 359), (0.25, 800), (0.25, 691), (0.2402530733520421, 564), (0.2402530733520421, 549), (0.2402530733520421, 46), (0.23166247903553999, 941), (0.22400923773979589, 252)]
+[(0.5, 816), (0.5, 768), (0.41421356237309509, 555), (0.41421356237309509, 4), (0.36602540378443865, 534), (0.36602540378443865, 314), (0.36602540378443865, 127), (0.36602540378443865, 38), (0.33333333333333331, 826), (0.33333333333333331, 727)]
+[(0.21712927295533244, 451), (0.16396078054371141, 782), (0.13652705949581431, 721), (0.095840694682461411, 181), (0.0, 943), (0.0, 942), (0.0, 941), (0.0, 940), (0.0, 939), (0.0, 938)]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Task t4d</span>
+<span class="c">#In this task, we are going to predict the rating of a user for a movie using user based collaborative filtering</span>
+<span class="c">#Here is the high level logic:</span>
+<span class="c"># for each user u in all_user_ids:</span>
+<span class="c">#    s= similarity between u and input_user_id [remember to pass min_common_movies]</span>
+<span class="c">#    if similairty is 0.0 ignore u</span>
+<span class="c">#    if u has not rated this movie, ignore again</span>
+<span class="c">#    suppose u has rated this movie with a value of r</span>
+<span class="c">#    i am now going to give a &quot;weighted rating&quot; as r*s</span>
+<span class="c"># compute the predicted rating as sum of all weighted ratings / sum of all similarities</span>
+
+<span class="k">def</span> <span class="nf">predict_rating_for_movie_ucf</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="n">input_user_id</span><span class="p">,</span> <span class="n">movie_name</span><span class="p">,</span> <span class="n">all_user_ids</span><span class="p">,</span> <span class="n">min_common_movies</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">total_weighted_rating</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">total_similarity</span><span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="c">#For each user id</span>
+
+        <span class="c">#except input_user_id </span>
+        
+        <span class="c">#compute similarity between users</span>
+        <span class="n">similarity</span> <span class="o">=</span> <span class="bp">None</span>
+        
+        <span class="c">#Reject user if similarity is 0</span>
+            
+        <span class="c">#reject user if (s)he has not rated the movie</span>
+            
+        <span class="c">#Compute weighted rating</span>
+        
+        <span class="c">#update total_weighted_rating and total_similarity</span>
+            
+    <span class="c">#Do not change below</span>
+    <span class="k">if</span> <span class="n">total_similarity</span> <span class="o">==</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mf">0.0</span>
+    
+    <span class="k">return</span> <span class="n">total_weighted_rating</span> <span class="o">/</span> <span class="n">total_similarity</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="n">all_user_ids</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">943</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;user_id = &quot;</span><span class="p">,</span> <span class="n">user_id</span>
+    <span class="k">print</span> <span class="p">[</span> <span class="nb">round</span><span class="p">(</span><span class="n">predict_rating_for_movie_ucf</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">all_movie_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">all_user_ids</span><span class="p">,</span> <span class="n">min_common_movies</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="k">print</span> <span class="p">[</span> <span class="nb">round</span><span class="p">(</span><span class="n">predict_rating_for_movie_ucf</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">all_movie_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">all_user_ids</span><span class="p">,</span> <span class="n">min_common_movies</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+          <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="k">print</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>user_id =  1
+[3.2, 3.1, 3.6, 3.3, 3.8, 3.8, 4.0, 3.9, 3.9, 3.9]
+[3.2, 3.1, 3.6, 3.3, 3.5, 3.8, 4.0, 3.9, 3.9, 3.8]
+
+
+user_id =  2
+[3.2, 3.1, 3.6, 3.3, 3.7, 3.8, 4.0, 3.9, 3.8, 3.9]
+[3.2, 3.1, 3.6, 3.3, 3.5, 3.8, 4.1, 3.9, 3.8, 3.8]
+
+
+user_id =  3
+[3.2, 3.0, 3.6, 3.3, 3.4, 3.8, 3.9, 3.9, 3.8, 3.9]
+[3.0, 2.8, 3.5, 3.1, 3.2, 3.8, 4.0, 3.9, 3.7, 3.8]
+
+
+user_id =  4
+[3.3, 3.0, 3.6, 3.4, 3.4, 3.8, 3.9, 3.9, 3.7, 3.9]
+[3.2, 2.9, 3.4, 3.0, 2.8, 3.8, 4.0, 3.8, 3.5, 3.9]
+
+
+user_id =  5
+[3.2, 3.0, 3.5, 3.3, 3.6, 3.8, 4.0, 3.8, 3.8, 3.8]
+[3.2, 3.0, 3.5, 3.3, 3.5, 3.8, 4.0, 3.8, 3.8, 3.8]
+
+
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Task t4e: </span>
+<span class="c">#Here is the pseudocode for recommending movies</span>
+<span class="c"># for each movie this user has not rated:</span>
+<span class="c">#     for all other users:</span>
+<span class="c">#           predict rating for this movie and this user using t4d</span>
+<span class="c">#  return the top-k movies</span>
+<span class="k">def</span> <span class="nf">recommend_movies_ucf</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="n">all_user_ids</span><span class="p">,</span> <span class="n">input_user_id</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_common_movies</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+    <span class="n">predicted_ratings</span> <span class="o">=</span> <span class="p">[]</span>
+    
+    <span class="c">#Your code here</span>
+    
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">predicted_ratings</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)[:</span><span class="n">k</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c">#Do not change below</span>
+<span class="n">all_user_ids</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">943</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">user_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">):</span>
+    <span class="k">print</span> <span class="n">recommend_movies_ucf</span><span class="p">(</span><span class="n">user_rating_hash</span><span class="p">,</span> <span class="n">all_user_ids</span><span class="p">,</span> <span class="n">user_id</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">min_common_movies</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[(5.0000000000000009, &apos;Saint of Fort Washington, The (1993)&apos;), (5.0, &apos;They Made Me a Criminal (1939)&apos;), (5.0, &quot;Someone Else&apos;s America (1995)&quot;), (5.0, &apos;Santa with Muscles (1996)&apos;), (5.0, &apos;Prefontaine (1997)&apos;), (5.0, &apos;Marlene Dietrich: Shadow and Light (1996) &apos;), (5.0, &apos;Little City (1998)&apos;), (5.0, &apos;Great Day in Harlem, A (1994)&apos;), (5.0, &apos;Entertaining Angels: The Dorothy Day Story (1996)&apos;), (5.0, &apos;Aiqing wansui (1994)&apos;)]
+[(5.0000000000000009, &apos;Prefontaine (1997)&apos;), (5.0, &apos;They Made Me a Criminal (1939)&apos;), (5.0, &apos;Star Kid (1997)&apos;), (5.0, &quot;Someone Else&apos;s America (1995)&quot;), (5.0, &apos;Santa with Muscles (1996)&apos;), (5.0, &apos;Saint of Fort Washington, The (1993)&apos;), (5.0, &apos;Marlene Dietrich: Shadow and Light (1996) &apos;), (5.0, &apos;Great Day in Harlem, A (1994)&apos;), (5.0, &apos;Entertaining Angels: The Dorothy Day Story (1996)&apos;), (5.0, &apos;Aiqing wansui (1994)&apos;)]
+[(5.0, &apos;Tough and Deadly (1995)&apos;), (5.0, &apos;Star Kid (1997)&apos;), (5.0, &apos;Santa with Muscles (1996)&apos;), (5.0, &apos;Saint of Fort Washington, The (1993)&apos;), (5.0, &apos;Marlene Dietrich: Shadow and Light (1996) &apos;), (5.0, &apos;Great Day in Harlem, A (1994)&apos;), (5.0, &apos;Entertaining Angels: The Dorothy Day Story (1996)&apos;), (5.0, &apos;Aiqing wansui (1994)&apos;), (4.9999999999999991, &apos;Prefontaine (1997)&apos;), (4.6888446196178126, &apos;Anna (1996)&apos;)]
+[(5.0000000000000009, &apos;Prefontaine (1997)&apos;), (5.0, &apos;Star Kid (1997)&apos;), (5.0, &quot;Someone Else&apos;s America (1995)&quot;), (5.0, &apos;Santa with Muscles (1996)&apos;), (5.0, &apos;Saint of Fort Washington, The (1993)&apos;), (5.0, &apos;Marlene Dietrich: Shadow and Light (1996) &apos;), (5.0, &apos;Little City (1998)&apos;), (5.0, &apos;Great Day in Harlem, A (1994)&apos;), (4.6385142554001959, &apos;Leading Man, The (1996)&apos;), (4.6325248550982909, &apos;Crossfire (1947)&apos;)]
+</pre>
+</div>
+</div>
+
 </div>
 </div>
 
@@ -2252,8 +3523,10 @@ Movies similar to Shawshank Redemption [100] [(9.2736184954957039, &apos;Glory (
 <span class="c"># ie rows=users, col=movies</span>
 <span class="c"># Hint: If you are reading it from file, note that Python treats the data from file as a string</span>
 <span class="c"># so you might want to convert them to integer before inserting them.</span>
-
-<span class="c">#Your code below</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;ml-100k/u.data&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">user_id</span><span class="p">,</span> <span class="n">movie_id</span><span class="p">,</span> <span class="n">rating</span><span class="p">,</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\t</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="n">ratings_matrix</span><span class="p">[</span> <span class="nb">int</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">movie_id</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">rating</span><span class="p">)</span>
 </pre></div>
 
 </div>
